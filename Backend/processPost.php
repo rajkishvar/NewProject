@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         move_uploaded_file($file_tmp, $uploadFilePath);
 
         $imagePaths[] = $uploadFilePath;
+        $filenames[] = $file_name;
     }
 
 
@@ -30,13 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if(mysqli_query($conn,$insertBio)){
         $postID=mysqli_insert_id($conn);
-        foreach($imagePaths as $imagePath){
-            $insertImages="INSERT INTO postImages (postID,imagePath) VALUES ('$postID','$imagePath')";
+        foreach($filenames as $filename){
+            $insertImages="INSERT INTO postImages (postID,imagePath) VALUES ('$postID','$filename')";
             mysqli_query($conn,$insertImages);
         }
         echo "<script>
             alert('New Record Addedd');
-            window.location.href='../hopePage.php';
+            window.location.href='../homePage.php';
             </script>";
     }else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);

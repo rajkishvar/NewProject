@@ -57,22 +57,65 @@
                             <button type="submit">Submit</button>
                         </form>
                     </div>
-                    <!-- ..... -->
+                    <!-- end of create post panel -->
                     <!-- display Posts -->
                     <div>
-                        <?php 
-                            $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID FROM post
-                                        INNER JOIN postsImages ON post.postID=postImages.postID
-                                        INNER JOIN userLogin ON post.userID = userLogin.userID";
-                            $resultFetchPost=mysqli_query($conn,$fetchPosts);
-                            
-                        ?>
+                        <!-- div for post  -->
+                        <div> 
+                            <?php 
+                                $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
+                                            INNER JOIN postImages ON post.postID=postImages.postID
+                                            INNER JOIN userLogin ON post.userID = userLogin.userID
+                                            ORDER BY post.postID";
+                                $resultFetchPost=mysqli_query($conn,$fetchPosts);  
+                                $currentPostID=null;
+
+                                
+                                while($row=mysqli_fetch_array($resultFetchPost)){
+                                    if($row['postID'] !==$currentPostID){
+                                        ?>
+                                        <a><?php echo $row['userID']?></a><br>
+                                        <a><?php echo $row['bio']?></a>
+
+                                    <!-- div for Interaction buttons -->
+                                    <div>
+                                        <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
+                                            <input type="hidden" name="reaction" value="Like">
+                                            <?php echo $row['likes']?><button>Like</button>
+                                        </form>
+                                        <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
+                                            <input type="hidden" name="reaction" value="Dislike">
+                                            <?php echo $row['dislikes']?><button>Dislike</button>
+                                        </form>
+                                        <form method="POST" action="viewPost.php?postID=<?php echo $row['postID']?>">
+                                            <button>View Post</button>
+                                        </form>
+                                    </div>
+                                    <!-- end of interaction div -->
+
+
+                                <?php
+                                $currentPostID = $row['postID'];
+                                
+                                    }
+                                ?>
+                            <!-- div for photos from posts -->
+                            <div> 
+                                <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
+                            </div>
+                            <!-- end of div  -->
+                            <?php
+                                }
+                            ?>
+                        </div>
+                        <!-- div for post ends here -->
+                 
                     </div>
-                    <!-- ... -->
+                    <!-- end of display for post -->
             </div>
-            <!-- .... -->
+            <!-- end of right panel -->
         </div>
-        <!-- ..... -->
+        <!-- end of center div -->
     </body>
 
     <script>
