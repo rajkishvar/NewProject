@@ -69,8 +69,8 @@
                                             ORDER BY post.postID";
                                 $resultFetchPost=mysqli_query($conn,$fetchPosts);  
                                 $currentPostID=null;
-
-                                
+                                $test=mysqli_num_rows($resultFetchPost);
+                                if($test>0){
                                 while($row=mysqli_fetch_array($resultFetchPost)){
                                     if($row['postID'] !==$currentPostID){
                                         ?>
@@ -106,6 +106,12 @@
                             <!-- end of div  -->
                             <?php
                                 }
+                            }else{
+                                ?>
+                                <!-- if there is no posts yet  -->
+                                <a>No Posts Yet!</a>
+                           <?php     
+                            }
                             ?>
                         </div>
                         <!-- div for post ends here -->
