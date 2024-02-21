@@ -9,15 +9,40 @@
 
 ?>
 
-<html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Static/CSS/style.css">
+        <link rel="icon" href="Images/LOGO/favicon.ico">
+        <title>Catherinan Buzz</title>
+    </head>
     <body>
          <!-- top navigation -->
-        <div>
-            <button>Home</button>
-            <button>Settings</button>
-            <button>Games</button>
-            <button>About Us</button>
-        </div>
+         <header class="nav-bar">
+            <div class="logo">
+                <a href="/">
+                    <img src="Images/LOGO/logo.jpg.jpg" alt="scc_logo">
+                    <p>
+                        CatherinanBUZZ
+                    </p>
+                </a>
+            </div>
+            <div class="bottom-menu">
+                <nav class="buttons">
+                    <ul>
+                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="http://example.com">SETTINGS</a></li>
+                        <li><a href="http://example.com">FORUMS</a></li>
+                        <li><a href="http://example.com">ABOUT US</a></li>
+                        <div class="search">
+                            <input type="text" placeholder="Search Here">
+                            <img src="Images/Icons/search.jpg" alt="search-icon">
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <!-- ... -->
         <!-- center -->
         <div>
@@ -30,11 +55,45 @@
                     if($rows>0){
                         while($row=mysqli_fetch_array($resultAccount)){
                 ?>
-                <h4>Related Questions</h4>
-
-                <img src=/>
-                <h6><?php echo $row['accountType']?></h6>
-                <button>HIDE BAR</button>
+                <section class="sidebar">
+                    <div class="related-questions-title">
+                        <h1>Related Questions</h1>
+                    </div>
+                    <div class="sidebar-info">
+                        <div class="sidebar-info-questions">
+                            <div>
+                                Question one
+                            </div>
+                            <div>
+                                Question two
+                            </div>
+                            <div>
+                                Question three
+                            </div>
+                            <div>
+                                Question four
+                            </div>
+                        </div>
+                        <div class="sidebar-info-bio">
+                            <div>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                        <div class="profile-picture">
+                            <img src="Images/Profile/profile-1.jpg">
+                        </div>
+                        <div class="sidebar-info-profilebutton">
+                            <h6><?php echo $row['accountType']?></h6>
+                        </div>
+                        <div class="sidebar-info-hidebar-button">
+                            <button class="side-button">
+                                Hide Bar
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                
+             
                 <?php 
                         }
                     }
@@ -42,8 +101,11 @@
             </div>
             <!-- .... -->
             <!-- RIGHT PANEL -->
-            <div>
-                <h3>Page title<h3>
+            <section class="feed-section">
+                <div class="title">
+                    Page Title
+                </div>
+            
                     <!-- create Post panel -->
                     <div>
                     <h4>Create Post</h4>
@@ -59,9 +121,9 @@
                     </div>
                     <!-- end of create post panel -->
                     <!-- display Posts -->
-                    <div>
                         <!-- div for post  -->
-                        <div> 
+                        <div class="posts">
+                            <div class="post-info">
                             <?php 
                                 $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
                                             INNER JOIN postImages ON post.postID=postImages.postID
@@ -69,16 +131,28 @@
                                             ORDER BY post.postID";
                                 $resultFetchPost=mysqli_query($conn,$fetchPosts);  
                                 $currentPostID=null;
-                                $test=mysqli_num_rows($resultFetchPost);
-                                if($test>0){
+
+                                
                                 while($row=mysqli_fetch_array($resultFetchPost)){
                                     if($row['postID'] !==$currentPostID){
                                         ?>
-                                        <a><?php echo $row['userID']?></a><br>
-                                        <a><?php echo $row['bio']?></a>
+                                        <div class="profile-posts">
+                                            <img src="Images/Profile/profile-1.jpg">
+                                            <a><?php echo $row['userID']?></a><br>
+                                        </div>
+                                        <div class="post-text">
+                                            <div class="post-title">
+                                                TITLE HERE
+                                            </div>
+                                            <div class="post-info-text">
+                                                <a><?php echo $row['bio']?></a>
+                                            </div>
+                                        </div>
+                
+                                        
 
                                     <!-- div for Interaction buttons -->
-                                    <div>
+                                    <div class="post-votes">
                                         <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
                                             <input type="hidden" name="reaction" value="Like">
                                             <?php echo $row['likes']?><button>Like</button>
@@ -100,23 +174,17 @@
                                     }
                                 ?>
                             <!-- div for photos from posts -->
-                            <div> 
-                                <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
-                            </div>
+                                <div> 
+                                    <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
+                                </div>
                             <!-- end of div  -->
                             <?php
                                 }
-                            }else{
-                                ?>
-                                <!-- if there is no posts yet  -->
-                                <a>No Posts Yet!</a>
-                           <?php     
-                            }
                             ?>
-                        </div>
+                            </div>
                         <!-- div for post ends here -->
                  
-                    </div>
+                        </div>
                     <!-- end of display for post -->
             </div>
             <!-- end of right panel -->
