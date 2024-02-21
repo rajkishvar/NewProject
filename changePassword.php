@@ -10,13 +10,39 @@
 
 ?>
 <html>
-    <form action="Backend/change_password.php" method="POST">
-        <input type="password" id="newPassword" name="newPassword"placeholder="Enter New Password"onkeyup='check();'required/>
-        <input type="password" id="confirmPassword" name="confirmPassword" Placeholder="Confirm Password" onkeyup='check();'required/>
-        <span id='message'></span>
-        <h4 id="passwordError"></h4> 
-        <button>SUBMIT</button>
-    </form>
+    <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="Static/CSS/login-css.css">
+            <link rel="stylesheet" href="Static/CSS/style.css">
+            <link rel="icon" href="Images/LOGO/favicon.ico">
+            <title>Catherinan Buzz</title>
+    </head>
+    <div class="login-page">
+        <div class="login-info">
+            <div class="login-title">
+                <div class="login-picture">
+                    <img src="Images/LOGO/logo.jpg.jpg">
+                </div>
+                <div class="login-title-text">
+                    Catherinan Buzz
+                </div>
+            </div>
+            <div class="login-text">
+                Engage in discussions with your fellow blue warrior and play academic-related games on CatherinanBUZZ.
+            </div>
+        </div>
+        <div class="login-table">
+            <form action="Backend/change_password.php" method="POST">
+                <input type="password" id="newPassword" name="newPassword"placeholder="Enter New Password"onkeyup='check();'required/>
+                <input type="password" id="confirmPassword" name="confirmPassword" Placeholder="Confirm Password" onkeyup='check();'required/>
+                <span id='message'></span>
+                <h4 id="passwordError"></h4> 
+                <button>SUBMIT</button>
+            </form>
+            
+        </div>
+    </div>
     
 
     <script>
