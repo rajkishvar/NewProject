@@ -1,0 +1,57 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+.login-page{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10%;
+
+    justify-content: center;
+}
+.login-info .login-title-text, .login-text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    color: rgb(88, 3, 245);
+}
+
+.login-title{
+    display: grid;
+    grid-template-columns: 30% 1fr;
+}
+.login-title{
+    font-size: 70px;
+    color: grey;
+}
+.login-title img{
+    width: 100%;
+    border-radius: 50%;
+}
+.login-table{
+    padding: 20px;
+    background-color:rgb(255 255 255 / 0.5);
+    border-radius: 5px;
+    
+}
+
+.login-table form{
+    display: flex;
+    flex-direction: column;
+    opacity: 120%;
+}
+
+.login-table form input{
+    padding: 20px;
+    padding-left: 5px;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+.login-table form button{
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 50px;
+    color: black;
+    cursor: pointer;
+}

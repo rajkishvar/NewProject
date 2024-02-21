@@ -1,0 +1,24 @@
+.feed-section{
+    display: grid;
+    grid-template-columns: 3fr .5fr;
+    
+}
+.post-details{
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px; 
+    border-left:  grey solid 1px;
+    padding: 10px;
+    place-items: center;
+}
+.post-details-info{
+    text-align: center;
+}
+.post-details .post-id, .post-details .post-user{
+    display: flex;
+    flex-direction: row;
+    column-gap:10px;
+}
+.publish button{
+    padding: 10px;
+}

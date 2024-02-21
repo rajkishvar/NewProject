@@ -1,0 +1,169 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a {
+    text-decoration: None;
+}
+
+.logo a{
+    display: flex;
+    flex-direction: row;
+    place-items: center;
+    column-gap: 10px;
+    color: white;
+}
+/* Header */
+.nav-bar {
+    background-color: #00004d;
+    
+}
+.logo img{
+    width: 50px;
+    border-radius: 50%;
+}
+.nav-bar .logo {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.posts{
+    display: flex;
+    flex-direction: column;
+    border: grey solid 1px;
+}
+
+.post-info .profile-posts{
+    width: 100px;
+    height: 100px;
+    border-right: grey solid 1px;
+    margin: auto;
+}
+.post-info .profile-posts img{
+    width: 100%;
+    border-radius: 50%;
+    height: 100%;
+}
+.posts .post-info{
+    display: grid;
+    grid-template-columns: 120px 1fr 100px;
+    column-gap: 10px;
+    width: 100%;
+    justify-content: center;
+    
+}
+.post-info .post-votes{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+.post-title{
+    margin-bottom: 20px;
+}
+.post-text{
+    background-color: whitesmoke;
+}
+.post-votes button{
+    padding: 20px;
+    width: 100%;
+}
+/* Bottom Menu */
+.buttons ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.buttons ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: None;
+    padding: 20px;
+}
+.buttons li {
+    display: flex;
+    align-items: center;
+    background-color: #eea412;
+    border: white solid 2px;
+    padding: 10px 70px;
+    border-radius: 25px;
+}
+.search {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+.search input {
+    
+    padding-left: 10px;
+
+}
+.search img{
+
+    width: 100%;
+    height: 50px;
+}
+
+
+/* Body */
+body {
+    background-image: url("http://scc.edu.ph/images/slider-01.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+main {
+    margin-top: 2vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    justify-content: center;
+    grid-gap: 40px;
+
+}
+
+
+/* Related Questions Section */
+.sidebar {
+    border: grey solid 1px;
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(255 255 255 / 0.5);
+    place-items: center;
+}
+.related-questions-title {
+    text-align: center;
+    width: 35vh;
+    border-bottom: grey solid 1px;
+}
+.sidebar-info{
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    place-items: center;
+    padding: 10%;
+}
+.sidebar-info img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+
+}
+.sidebar-info button{
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.feed-section{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: rgb(255 255 255 / 0.5);
+    padding: 20px;
+    border: grey solid 1px;
+}
+.feed-section .title{
+    font-size:43px;
+}

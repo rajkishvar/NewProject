@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="icon" href="Images/LOGO/favicon.ico">
+    <title>Catherinan Buzz</title>
+</head>
+<body>
+    <header class="nav-bar">
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="Images/LOGO/logo.jpg.jpg" alt="scc_logo">
+                    <p>
+                        CatherinanBUZZ
+                    </p>
+                </a>
+            </div>
+            <div class="bottom-menu">
+                <nav class="buttons">
+                    <ul>
+                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="http://example.com">SETTINGS</a></li>
+                        <li><a href="http://example.com">FORUMS</a></li>
+                        <li><a href="http://example.com">ABOUT US</a></li>
+                        <div class="search">
+                            <input type="text" placeholder="Search Here">
+                            <img src="Images/Icons/search.jpg" alt="search-icon">
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+    </header>
+    <main>
+        <section class="sidebar">
+            <div class="related-questions-title">
+                <h1>Related Questions</h1>
+            </div>
+            <div class="sidebar-info">
+                <div class="sidebar-info-questions">
+                    <div>
+                        Question one
+                    </div>
+                    <div>
+                        Question two
+                    </div>
+                    <div>
+                        Question three
+                    </div>
+                    <div>
+                        Question four
+                    </div>
+                </div>
+                <div class="sidebar-info-bio">
+                    <div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </div>
+                </div>
+                <div class="profile-picture">
+                    <img src="Images/Profile/profile-1.jpg">
+                </div>
+                <div class="sidebar-info-profilebutton">
+                    <button class="side-button">
+                        Profile Settings
+                    </button>
+                </div>
+                <div class="sidebar-info-hidebar-button">
+                    <button class="side-button">
+                        Hide Bar
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="feed-section">
+            <div class="title">
+                Page Title
+            </div>
+            <form action="Backend/processPost.php" method="POST" enctype="multipart/form-data">
+                <label for="bio">Bio or Description:</label><br>
+                <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
+
+                <label for="images">Upload Images (Max 5):</label><br>
+                <input type="file" id="images" name="images[]" accept="image/*" multiple><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+            <div class="posts">
+                <div class="post-info">
+                    <div class="profile-posts">
+                        <img src="Images/Profile/profile-1.jpg">
+                    </div>
+                    <div class="post-text">
+                        <div class="post-title">
+                            TITLE HERE
+                        </div>
+                        <div class="post-info-text">
+                            Lorem IPSUM
+                        </div>
+                    </div>
+                    <div class="post-votes">
+                        <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
+                            <input type="hidden" name="reaction" value="Like">
+                            <?php echo $row['likes']?><button>Like</button>
+                        </form>
+                        <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
+                            <input type="hidden" name="reaction" value="Dislike">
+                            <?php echo $row['dislikes']?><button>Dislike</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+</body>
+</html>
