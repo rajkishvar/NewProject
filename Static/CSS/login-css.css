@@ -1,13 +1,16 @@
 *{
-    font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 .login-page{
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 10%;
-
+    column-gap: 20px;
     justify-content: center;
+}
+.login-page .login-info{
+    background-color: rgb(255 255 255 /0.3);
+    padding: 25px;
 }
 .login-info .login-title-text, .login-text {
     display: flex;

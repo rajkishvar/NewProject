@@ -26,7 +26,7 @@
                     <nav class="buttons">
                         <ul>
                             <li><a href="home-admin.html">HOME</a></li>
-                            <li><a href="http://example.com">SETTINGS</a></li>
+                            <li><a href="settings.php">SETTINGS</a></li>
                             <li><a href="http://example.com">FORUMS</a></li>
                             <li><a href="http://example.com">ABOUT US</a></li>
                             <div class="search">
