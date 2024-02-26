@@ -10,14 +10,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Static/CSS/login-css.css">
         <link rel="stylesheet" href="Static/CSS/style.css">
-        <link rel="icon" href="Images/LOGO/favicon.ico">
+        <link rel="icon" href="Static/Images/LOGO/favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
         <title>Catherinan Buzz</title>
     </head>
     <div class="login-page">
         <div class="login-info">
             <div class="login-title">
                 <div class="login-picture">
-                    <img src="Images/LOGO/logo.jpg.jpg">
+                    <img src="Static/Images/LOGO/logo.jpg.jpg">
                 </div>
                 <div class="login-title-text">
                     Catherinan Buzz

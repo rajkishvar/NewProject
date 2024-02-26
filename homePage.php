@@ -14,15 +14,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Static/CSS/style.css">
-        <link rel="icon" href="Images/LOGO/favicon.ico">
+        <link rel="icon" href="Static/Images/LOGO/favicon.ico">
         <title>Catherinan Buzz</title>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
     </head>
     <body>
          <!-- top navigation -->
          <header class="nav-bar">
             <div class="logo">
                 <a href="/">
-                    <img src="Images/LOGO/logo.jpg.jpg" alt="scc_logo">
+                    <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
                     <p>
                         CatherinanBUZZ
                     </p>
@@ -31,13 +32,13 @@
             <div class="bottom-menu">
                 <nav class="buttons">
                     <ul>
-                        <li><a href="home.html">HOME</a></li>
+                        <li><a href="homePage.php">HOME</a></li>
                         <li><a href="http://example.com">SETTINGS</a></li>
                         <li><a href="http://example.com">FORUMS</a></li>
                         <li><a href="http://example.com">ABOUT US</a></li>
                         <div class="search">
                             <input type="text" placeholder="Search Here">
-                            <img src="Images/Icons/search.jpg" alt="search-icon">
+                            <img src="Static/Images/Icons/search.jpg" alt="search-icon">
                         </div>
                     </ul>
                 </nav>
@@ -45,9 +46,9 @@
         </header>
         <!-- ... -->
         <!-- center -->
-        <div>
+        <main>
             <!-- left panel -->
-            <div>
+            
                 <?php 
                     $fetchAccountDetails="SELECT * FROM userLogin WHERE userID='$userID'";
                     $resultAccount=mysqli_query($conn,$fetchAccountDetails);
@@ -55,7 +56,7 @@
                     if($rows>0){
                         while($row=mysqli_fetch_array($resultAccount)){
                 ?>
-                <section class="sidebar">
+                <section id="sidebar">
                     <div class="related-questions-title">
                         <h1>Related Questions</h1>
                     </div>
@@ -80,25 +81,25 @@
                             </div>
                         </div>
                         <div class="profile-picture">
-                            <img src="Images/Profile/profile-1.jpg">
+                            <img src="Static/Images/Profile/profile-1.jpg">
                         </div>
                         <div class="sidebar-info-profilebutton">
                             <h6><?php echo $row['accountType']?></h6>
+                            
                         </div>
                         <div class="sidebar-info-hidebar-button">
-                            <button class="side-button">
+                            <button id="side-button">
                                 Hide Bar
                             </button>
                         </div>
                     </div>
                 </section>
-                
-             
+
                 <?php 
                         }
                     }
                 ?>
-            </div>
+            
             <!-- .... -->
             <!-- RIGHT PANEL -->
             <section class="feed-section">
@@ -137,7 +138,7 @@
                                     if($row['postID'] !==$currentPostID){
                                         ?>
                                         <div class="profile-posts">
-                                            <img src="Images/Profile/profile-1.jpg">
+                                            <img src="Static/Images/Profile/profile-1.jpg">
                                             <a><?php echo $row['userID']?></a><br>
                                         </div>
                                         <div class="post-text">
@@ -147,20 +148,36 @@
                                             <div class="post-info-text">
                                                 <a><?php echo $row['bio']?></a>
                                             </div>
+                                            <div> 
+                                                <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
+                                                </div>
                                         </div>
                 
                                         
 
                                     <!-- div for Interaction buttons -->
                                     <div class="post-votes">
-                                        <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
-                                            <input type="hidden" name="reaction" value="Like">
-                                            <?php echo $row['likes']?><button>Like</button>
-                                        </form>
-                                        <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
-                                            <input type="hidden" name="reaction" value="Dislike">
-                                            <?php echo $row['dislikes']?><button>Dislike</button>
-                                        </form>
+                                        <div class = "likes">
+                                            <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
+                                                <input type="hidden" name="reaction" value="Like">
+                                                <div class="like-counter">
+                                                    <?php echo $row['likes']?>
+                                                </div>
+                                                
+                                                    <button>Like</button>
+                                                
+                                            </form>
+                                        </div>
+                                        <div class = "dislikes">
+                                            <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
+                                                <input type="hidden" name="reaction" value="Dislike">
+                                                <div class = "dislike-counter">
+                                                    <?php echo $row['dislikes']?>
+                                                </div>
+                                                <button>Dislike</button>
+                                                
+                                            </form>
+                                        </div>
                                         <form method="POST" action="viewPost.php?postID=<?php echo $row['postID']?>">
                                             <button>View Post</button>
                                         </form>
@@ -174,9 +191,7 @@
                                     }
                                 ?>
                             <!-- div for photos from posts -->
-                                <div> 
-                                    <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
-                                </div>
+                                
                             <!-- end of div  -->
                             <?php
                                 }
@@ -188,7 +203,7 @@
                     <!-- end of display for post -->
             </div>
             <!-- end of right panel -->
-        </div>
+        </main>
         <!-- end of center div -->
     </body>
 
