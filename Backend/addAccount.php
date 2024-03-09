@@ -10,6 +10,7 @@
     $password=generatePassword();
 
     $studentID=$_POST['studentID'];
+    $accountType=$_POST['accountType'];
 
 
     $verifyIDnum="SELECT * FROM userLogin WHERE idnumber='$studentID'";
@@ -17,12 +18,12 @@
     $rows=mysqli_num_rows($resultVerify);
 
     if($rows<=0){
-        $addStudent="INSERT INTO userLogin VALUES('','$studentID','$password','User')";
+        $addStudent="INSERT INTO userLogin VALUES('','$studentID','$password','$accountType','')";
         $stmt=mysqli_query($conn,$addStudent);
         
         if($stmt){
             echo"<script>
-                    alert('Student Account Added');
+                    alert('Account Added');
                     window.location.href='../Admin/createAccounts.php';
                 </script>";
         }

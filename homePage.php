@@ -13,6 +13,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="Static/CSS/style.css">
         <link rel="icon" href="Static/Images/LOGO/favicon.ico">
         <title>Catherinan Buzz</title>
@@ -33,13 +34,15 @@
                 <nav class="buttons">
                     <ul>
                         <li><a href="homePage.php">HOME</a></li>
-                        <li><a href="http://example.com">SETTINGS</a></li>
+                        <li><a href="settings.php">SETTINGS</a></li>
                         <li><a href="http://example.com">FORUMS</a></li>
                         <li><a href="http://example.com">ABOUT US</a></li>
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <img src="Static/Images/Icons/search.jpg" alt="search-icon">
                         </div>
+                        <a href="Backend/logout.php" class="btn btn-danger">Log out</a>
+
                     </ul>
                 </nav>
             </div>
@@ -129,7 +132,8 @@
                                 $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
                                             INNER JOIN postImages ON post.postID=postImages.postID
                                             INNER JOIN userLogin ON post.userID = userLogin.userID
-                                            ORDER BY post.postID";
+                                            WHERE post.status='Published'
+                                            ORDER BY post.date DESC";
                                 $resultFetchPost=mysqli_query($conn,$fetchPosts);  
                                 $currentPostID=null;
 
