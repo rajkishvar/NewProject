@@ -8,10 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="Static/CSS/style.css">
         <link rel="stylesheet" href="Static/CSS/home-admin-style.css">
-        <link rel="icon" href="Images/LOGO/favicon.ico">
+        <link rel="icon" href="Static/Images/LOGO/favicon.ico">
         <title>Catherinan Buzz</title>
     </head>
     <body>
+<<<<<<< Updated upstream
         <header class="nav-bar">
             <nav>
                 <div class="logo">
@@ -36,49 +37,114 @@
                         </ul>
                     </nav>
                 </div>
+=======
+    <header class="nav-bar">
+            <div class="logo">
+                <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
+                <a href="homePage.php">
+                    
+                    <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
+                    <p>
+                        CatherinanBUZZ
+                    </p>
+                </a>
+            </div>
+            <div class="bottom-menu">
+                
+                <nav id="buttons">
+                    
+                        <a href="homePage.php">HOME</a>
+                        <a href="settings.php">SETTINGS</a>
+                        <a href="games.php">GAMES</a>
+                        <a href="http://example.com">ABOUT US</a>
+                        <div class="search">
+                            <input type="text" placeholder="Search Here">
+                            <img src="Static/Images/Icons/search.jpg" alt="search-icon">
+                        </div>
+                        <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
+
+                    
+                </nav>
+            </div>
+            <script>
+                function mobileMenu() {
+                                if (document.getElementById('buttons').style.display =="flex"){
+                                    document.getElementById('buttons').style.display ="none";
+                                }
+                                else {
+                                    document.getElementById('buttons').style.display ="flex";
+                                }
+                                
+                                
+                                }
+                                document.getElementById('hamburger-image').addEventListener('click', mobileMenu);
+                                    
+                                function resetMenu (){
+                                    if (window.innerWidth>=900) {
+                                        document.getElementById('buttons').style.display='flex';
+                                    } else if (window.innerWidth < 900){
+                                        document.getElementById('buttons').style.display='none';
+                                    }
+                                }
+                                window.addEventListener ('resize', resetMenu);
+            </script>
+>>>>>>> Stashed changes
         </header>
         <main>
-            <section class="sidebar">
-                <div class="related-questions-title">
-                    <h1>Related Questions</h1>
-                </div>
-                <div class="sidebar-info">
-                    <div class="sidebar-info-questions">
-                        <div>
-                            Question one
-                        </div>
-                        <div>
-                            Question two
-                        </div>
-                        <div>
-                            Question three
-                        </div>
-                        <div>
-                            Question four
-                        </div>
+        <section id="sidebar">
+                    <div class="related-questions-title">
+                        <h1>Related Questions</h1>
                     </div>
-                    <div class="sidebar-info-bio">
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <div class="sidebar-info">
+                        <div id = "hidebar">
+                            <div class="sidebar-info-questions">
+                                <div>
+                                    Question one
+                                </div>
+                                <div>
+                                    Question two
+                                </div>
+                                <div>
+                                    Question three
+                                </div>
+                                <div>
+                                    Question four
+                                </div>
+                            </div>
+                            <div class="sidebar-info-bio">
+                                <div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </div>
+                            </div>
+                            <div class="profile-picture">
+                                <img src="Static/Images/Profile/profile-1.jpg">
+                            </div>
+                            <button id = "addAccountsButton">Add Account</button>
+                            <div class="sidebar-info-profilebutton">
+                                <h6><?php echo $row['accountType']?></h6>
+                                
+                            </div>
                         </div>
+                        
+                        <div class="sidebar-info-hidebar-button">
+                            <button onclick ="toggle()" id="side-button">
+                                Hide Bar
+                            </button>
+                        </div>
+                        <script>
+                            function toggle(){
+                                var x = document.getElementById("hidebar");
+                                if(x.style.display === "none"){
+                                    x.style.display = "block";
+                                }
+                                else{
+                                    x.style.display = "none";
+                                }
+                            }
+                                
+                        </script>
                     </div>
-                    <div class="profile-picture">
-                        <img src="Images/Profile/profile-1.jpg">
-                    </div>
-                    <button id="addAccountsButton">Add Accounts</button>
-                    <div class="sidebar-info-profilebutton">
-                        <button class="side-button">
-                            ADMINISTRATOR
-                        </button>
-                    </div>
-                    <div class="sidebar-info-hidebar-button">
-                        <button class="side-button">
-                            Hide Bar
-                        </button>
-                    </div>
-                    
-                </div>
-            </section>
+                </section>
             <section class="feed-section">
                     <div class="title">
                         Post Verification Inbox

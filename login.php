@@ -34,6 +34,10 @@
                 <input type="password" name="password"placeholder="Password"/>
                 <button type ="submit">SUBMIT</button>
             </form>
+<<<<<<< Updated upstream
+=======
+            <button id = "forgot"><a href="forgotPassword.php">Forgot Password</a></button>
+>>>>>>> Stashed changes
             
         </div>
     </div>
