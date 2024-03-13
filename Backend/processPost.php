@@ -6,6 +6,7 @@ session_start();
 
 require('dbconnect.php');
 $userID=$_SESSION['userID'];
+$status="PENDING";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $bio = $_POST['bio'];
@@ -27,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    $insertBio="INSERT INTO post (Bio,userID) VALUES ('$bio',$userID)";
+    $insertBio="INSERT INTO post (Bio,userID,date,status) VALUES ('$bio',$userID,now(),'$status')";
     
     if(mysqli_query($conn,$insertBio)){
         $postID=mysqli_insert_id($conn);

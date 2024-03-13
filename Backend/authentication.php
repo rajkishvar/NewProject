@@ -25,11 +25,17 @@
                     window.location.href='../changePassword.php';
                 </script>";
         }else{
-            if($accountType=="ADMIN"){
+            if($accountType=="Admin"){
                 echo"<script>
                     alert('Welcome Back, Admin');
-                    window.location.href='../Admin/home.php';
+                    window.location.href='../homeAdmin.php';
                 </script>";
+
+            }else if($accountType=="Moderator"){
+                echo"<script>
+                        alert('Welcome Back, Admin');
+                        window.location.href='../Admin/home.php';
+                    </script>";
 
             }
             echo"<script>
