@@ -23,7 +23,9 @@
          <!-- top navigation -->
          <header class="nav-bar">
             <div class="logo">
-                <a href="/">
+                <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
+                <a href="homePage.php">
+                    
                     <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
                     <p>
                         CatherinanBUZZ
@@ -31,21 +33,44 @@
                 </a>
             </div>
             <div class="bottom-menu">
-                <nav class="buttons">
-                    <ul>
-                        <li><a href="homePage.php">HOME</a></li>
-                        <li><a href="settings.php">SETTINGS</a></li>
-                        <li><a href="http://example.com">FORUMS</a></li>
-                        <li><a href="http://example.com">ABOUT US</a></li>
+                
+                <nav id="buttons">
+                    
+                        <a href="homePage.php">HOME</a>
+                        <a href="settings.php">SETTINGS</a>
+                        <a href="games.php">GAMES</a>
+                        <a href="aboutUs.php">ABOUT US</a>
+
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <img src="Static/Images/Icons/search.jpg" alt="search-icon">
                         </div>
-                        <a href="Backend/logout.php" class="btn btn-danger">Log out</a>
 
-                    </ul>
+                        <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
                 </nav>
             </div>
+            <script>
+                function mobileMenu() {
+                                if (document.getElementById('buttons').style.display =="flex"){
+                                    document.getElementById('buttons').style.display ="none";
+                                }
+                                else {
+                                    document.getElementById('buttons').style.display ="flex";
+                                }
+                                
+                                
+                                }
+                                document.getElementById('hamburger-image').addEventListener('click', mobileMenu);
+                                    
+                                function resetMenu (){
+                                    if (window.innerWidth>=900) {
+                                        document.getElementById('buttons').style.display='flex';
+                                    } else if (window.innerWidth < 900){
+                                        document.getElementById('buttons').style.display='none';
+                                    }
+                                }
+                                window.addEventListener ('resize', resetMenu);
+            </script>
         </header>
         <!-- ... -->
         <!-- center -->
@@ -64,37 +89,51 @@
                         <h1>Related Questions</h1>
                     </div>
                     <div class="sidebar-info">
-                        <div class="sidebar-info-questions">
-                            <div>
-                                Question one
+                        <div id = "hidebar">
+                            <div class="sidebar-info-questions">
+                                <div>
+                                    Question one
+                                </div>
+                                <div>
+                                    Question two
+                                </div>
+                                <div>
+                                    Question three
+                                </div>
+                                <div>
+                                    Question four
+                                </div>
                             </div>
-                            <div>
-                                Question two
+                            <div class="sidebar-info-bio">
+                                <div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </div>
                             </div>
-                            <div>
-                                Question three
+                            <div class="profile-picture">
+                                <img src="Static/Images/Profile/profile-1.jpg">
                             </div>
-                            <div>
-                                Question four
+                            <div class="sidebar-info-profilebutton">
+                                <h6><?php echo $row['accountType']?></h6>
+                                
                             </div>
-                        </div>
-                        <div class="sidebar-info-bio">
-                            <div>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </div>
-                        </div>
-                        <div class="profile-picture">
-                            <img src="Static/Images/Profile/profile-1.jpg">
-                        </div>
-                        <div class="sidebar-info-profilebutton">
-                            <h6><?php echo $row['accountType']?></h6>
-                            
                         </div>
                         <div class="sidebar-info-hidebar-button">
-                            <button id="side-button">
+                            <button onclick ="toggle()" id="side-button">
                                 Hide Bar
                             </button>
                         </div>
+                        <script>
+                            function toggle(){
+                                var x = document.getElementById("hidebar");
+                                if(x.style.display === "none"){
+                                    x.style.display = "block";
+                                }
+                                else{
+                                    x.style.display = "none";
+                                }
+                            }
+                                
+                        </script>
                     </div>
                 </section>
 
@@ -137,7 +176,6 @@
                                 $resultFetchPost=mysqli_query($conn,$fetchPosts);  
                                 $currentPostID=null;
 
-                                
                                 while($row=mysqli_fetch_array($resultFetchPost)){
                                     if($row['postID'] !==$currentPostID){
                                         ?>

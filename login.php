@@ -34,8 +34,7 @@
                 <input type="password" name="password"placeholder="Password"/>
                 <button type ="submit">SUBMIT</button>
             </form>
-            <a href="forgotPassword.php">Forgot Password</a>
-            
+            <button id = "forgot"><a href="forgotPassword.php">Forgot Password</a></button>  
         </div>
     </div>
 </html>

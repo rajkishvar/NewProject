@@ -22,29 +22,58 @@
         <body>
             <!-- top navigation -->
             <header class="nav-bar">
-                <div class="logo">
-                    <a href="/">
-                        <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
-                        <p>
-                            CatherinanBUZZ
-                        </p>
-                    </a>
-                </div>
-                <div class="bottom-menu">
-                    <nav class="buttons">
-                        <ul>
-                            <li><a href="homePage.php">HOME</a></li>
-                            <li><a href="settings.php">SETTINGS</a></li>
-                            <li><a href="http://example.com">FORUMS</a></li>
-                            <li><a href="http://example.com">ABOUT US</a></li>
-                            <div class="search">
-                                <input type="text" placeholder="Search Here">
-                                <img src="Static/Images/Icons/search.jpg" alt="search-icon">
-                            </div>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
+
+            <div class="logo">
+                <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
+                <a href="homePage.php">
+                    
+                    <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
+                    <p>
+                        CatherinanBUZZ
+                    </p>
+                </a>
+            </div>
+            <div class="bottom-menu">
+                
+                <nav id="buttons">
+                    
+                        <a href="homePage.php">HOME</a>
+                        <a href="settings.php">SETTINGS</a>
+                        <a href="games.php">Games</a>
+                        <a href="http://example.com">ABOUT US</a>
+                        <div class="search">
+                            <input type="text" placeholder="Search Here">
+                            <img src="Static/Images/Icons/search.jpg" alt="search-icon">
+                        </div>
+                        <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
+
+                    
+                </nav>
+            </div>
+            <script>
+                function mobileMenu() {
+                                if (document.getElementById('buttons').style.display =="flex"){
+                                    document.getElementById('buttons').style.display ="none";
+                                }
+                                else {
+                                    document.getElementById('buttons').style.display ="flex";
+                                }
+                                
+                                
+                                }
+                                document.getElementById('hamburger-image').addEventListener('click', mobileMenu);
+                                    
+                                function resetMenu (){
+                                    if (window.innerWidth>=900) {
+                                        document.getElementById('buttons').style.display='flex';
+                                    } else if (window.innerWidth < 900){
+                                        document.getElementById('buttons').style.display='none';
+                                    }
+                                }
+                                window.addEventListener ('resize', resetMenu);
+            </script>
+        </header>
+
             <!-- .......... -->
             <div>
                 <?php 
@@ -71,6 +100,7 @@
                 </div>
             </div>
             <!-- .......... -->
+
         </body>
 <script>
     document.getElementById("changePassButton").addEventListener("click", function() {

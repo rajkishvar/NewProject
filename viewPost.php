@@ -40,10 +40,10 @@
                 </a>
             </div>
             <div class="bottom-menu">
-                <nav class="buttons">
+                <nav id="buttons">
                     <ul>
                         <li><a href="homePage.php">HOME</a></li>
-                        <li><a href="http://example.com">SETTINGS</a></li>
+                        <li><a href="settings.php">SETTINGS</a></li>
                         <li><a href="http://example.com">FORUMS</a></li>
                         <li><a href="http://example.com">ABOUT US</a></li>
                         <div class="search">

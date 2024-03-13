@@ -12,7 +12,8 @@
     background-color: rgb(255 255 255 /0.3);
     padding: 25px;
 }
-.login-info .login-title-text, .login-text {
+
+.login-title-text, .login-text {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -22,10 +23,15 @@
 .login-title{
     display: grid;
     grid-template-columns: 30% 1fr;
-}
-.login-title{
     font-size: 70px;
     color: grey;
+    
+}
+.login-info .login-title-text{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    color: rgb(0, 184, 168);
 }
 .login-title img{
     width: 100%;
@@ -57,4 +63,23 @@
     margin-top: 50px;
     color: black;
     cursor: pointer;
+}
+#forgot {
+    padding: 10px;
+    border-radius: 10px;
+}
+#forgot a {
+    color: black;
+}
+@media (max-width: 900px) {
+    .login-page{
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+    .login-text{
+        font-size: 100%;
+    }
+    .login-info .login-title-text{
+        font-size: 50%;
+    }
 }
