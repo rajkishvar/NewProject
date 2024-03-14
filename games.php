@@ -9,6 +9,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="Static/CSS/style.css">
         <link rel="icon" href="Static/Images/LOGO/favicon.ico">
+        <link rel ="stylesheet" href = "Static/CSS/games.css">
         <title>Catherinan Buzz</title>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
     </head>
@@ -65,4 +66,24 @@
                                 window.addEventListener ('resize', resetMenu);
             </script>
         </header>
+        <div class = "title">GAMES</title>
+        <div class = "games-container">
+            
+                <div class = "games">
+                    <a href ="https://agar.io/"><img src = "Static/Images/Games/game-1.png"></a>
+                    AGAR
+                </div>
+                <div class = "games">
+                    <a href ="https://slither.io/"><img src = "Static/Images/Games/game-2.jpg"></a>
+                    SLITHER
+                </div>
+                <div class = "games">
+                    <a href ="https://gartic.com/"><img src = "Static/Images/Games/game-3.png"></a>
+                    GARTIC
+                </div>
+                <div class = "games">
+                    <a href ="https://krunker.io/"><img src = "Static/Images/Games/game-4.jpg"></a>
+                    KRUNKER
+                </div>
+        </div>
 </html>

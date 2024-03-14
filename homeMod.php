@@ -1,50 +1,26 @@
 <?php
-
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    session_start();
+    require('Backend/dbconnect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="Static/CSS/style.css">
         <link rel="stylesheet" href="Static/CSS/home-admin-style.css">
         <link rel="icon" href="Static/Images/LOGO/favicon.ico">
         <title>Catherinan Buzz</title>
     </head>
     <body>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        <header class="nav-bar">
-            <nav>
-                <div class="logo">
-                    <a href="/">
-                        <img src="Images/LOGO/logo.jpg.jpg" alt="scc_logo">
-                        <p>
-                            CatherinanBUZZ
-                        </p>
-                    </a>
-                </div>
-                <div class="bottom-menu">
-                    <nav class="buttons">
-                        <ul>
-                            <li><a href="home-admin.html">HOME</a></li>
-                            <li><a href="settings.php">SETTINGS</a></li>
-                            <li><a href="http://example.com">FORUMS</a></li>
-                            <li><a href="http://example.com">ABOUT US</a></li>
-                            <div class="search">
-                                <input type="text" placeholder="Search Here">
-                                <img src="Images/Icons/search.jpg" alt="search-icon">
-                            </div>
-                        </ul>
-                    </nav>
-                </div>
-=======
-=======
->>>>>>> Stashed changes
     <header class="nav-bar">
             <div class="logo">
                 <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
-                <a href="homePage.php">
+                <a href="homeMod.php">
                     
                     <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
                     <p>
@@ -56,8 +32,8 @@
                 
                 <nav id="buttons">
                     
-                        <a href="homeAdmin.php">HOME</a>
-                        <a href="settings.php">SETTINGS</a>
+                        <a href="homeMod.php">HOME</a>
+                        <a href="homeMod.php">SETTINGS</a>
                         <a href="games.php">GAMES</a>
                         <a href="aboutUs.php">ABOUT US</a>
                         <div class="search">
@@ -121,9 +97,8 @@
                             <div class="profile-picture">
                                 <img src="Static/Images/Profile/profile-1.jpg">
                             </div>
-                            <button id = "addAccountsButton">Add Account</button>
                             <div class="sidebar-info-profilebutton">
-                                ADMIN
+                                MODERATOR
                                 
                             </div>
                         </div>
@@ -148,21 +123,8 @@
                     </div>
                 </section>
             <section class="feed-section">
-<<<<<<< Updated upstream
-                    <div class="title">
-                        Post Verification Inbox
-                    </div>
-                <div class="post-details">
-=======
                 <!-- div for post  -->
                 <div class="posts">
-                    
-                <!-- div for post ends here -->
-
-
-                    <div class="title">
-                        Post Verification Inbox
-                    </div>
                     <div class="post-info">
                     <?php 
                         $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
@@ -182,13 +144,15 @@
                                     <a><?php echo $row['userID']?></a><br>
                                 </div>
                                 <div class="post-text">
-                        
+                                    <div class="post-title">
+                                        TITLE HERE
+                                    </div>
                                     <div class="post-info-text">
                                         <a><?php echo $row['bio']?></a>
                                     </div>
                                     <div> 
                                         <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
-                                    </div>
+                                        </div>
                                 </div>
         
                                 
@@ -221,8 +185,14 @@
                         }
                     ?>
                     </div>
+                <!-- div for post ends here -->
+
+
+                    <div class="title">
+                        Post Verification Inbox
+                    </div>
+                    
                 <!-- <div class="post-details">
->>>>>>> Stashed changes
                     <div class="post-details-title">
                         Post's Details
                     </div>
@@ -264,12 +234,17 @@
                             REJECT
                         </button>
                     </div>
-                </div>
+                </div> -->
+                
 
             
             </section>
+            
         </main>
 
 
     </body>
+    <script>
+    
+</script>
 </html>

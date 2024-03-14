@@ -3,6 +3,10 @@
     grid-template-columns: 3fr .5fr;
     
 }
+.feed-section{
+    display: grid;
+    grid-template-columns: 1fr !important;
+}
 .post-details{
     display: flex;
     flex-direction: column;
@@ -11,8 +15,22 @@
     padding: 10px;
     place-items: center;
 }
+.post{
+    margin: auto;
+}
+.post-votes{
+    display: flex;
+    flex-direction: row;
+}
+
 .post-details-info{
     text-align: center;
+}
+.post-votes div form button{
+    font-size : 15px;
+    background-color: white;
+    border: 1px solid;
+    color: black;
 }
 .post-details .post-id, .post-details .post-user{
     display: flex;
@@ -21,4 +39,11 @@
 }
 .publish button{
     padding: 10px;
+}
+@media (max-width:900px) {
+    .post-votes div{
+        display: flex;
+        flex-direction: row;
+    }
+    
 }

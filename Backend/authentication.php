@@ -31,6 +31,15 @@
                     window.location.href='../Admin/home.php';
                 </script>";
 
+<<<<<<< Updated upstream
+=======
+            }else if($accountType=="Moderator"){
+                echo"<script>
+                        alert('Welcome Back, Moderator');
+                        window.location.href='../homeMod.php';
+                    </script>";
+
+>>>>>>> Stashed changes
             }
             echo"<script>
                     alert('Welcome Back');
