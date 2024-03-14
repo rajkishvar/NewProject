@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 23, 2024 at 12:50 AM
+-- Generation Time: Mar 14, 2024 at 10:42 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -54,15 +54,17 @@ CREATE TABLE `post` (
   `userID` int(5) NOT NULL,
   `Bio` text NOT NULL,
   `likes` int(11) NOT NULL,
-  `dislikes` int(11) NOT NULL
+  `dislikes` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`postID`, `userID`, `Bio`, `likes`, `dislikes`) VALUES
-(6, 9, 'test post', 1, 0);
+INSERT INTO `post` (`postID`, `userID`, `Bio`, `likes`, `dislikes`, `date`, `status`) VALUES
+(6, 9, 'test post', 1, 1, '0000-00-00 00:00:00', 'Published');
 
 -- --------------------------------------------------------
 
@@ -102,7 +104,8 @@ CREATE TABLE `reaction` (
 --
 
 INSERT INTO `reaction` (`reactionID`, `userID`, `postID`, `reaction`) VALUES
-(5, 9, 6, 'Like');
+(5, 9, 6, 'Like'),
+(6, 1, 6, 'Dislike');
 
 -- --------------------------------------------------------
 
@@ -114,25 +117,27 @@ CREATE TABLE `userLogin` (
   `userID` int(11) NOT NULL,
   `idnumber` varchar(10) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `accountType` varchar(10) NOT NULL
+  `accountType` varchar(10) NOT NULL,
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `userLogin`
 --
 
-INSERT INTO `userLogin` (`userID`, `idnumber`, `password`, `accountType`) VALUES
-(1, '12345', '098765', 'user'),
-(2, '0', '', 'User'),
-(3, '0', '', 'User'),
-(4, '45678', '45678', 'User'),
-(5, '5786', '05786', 'User'),
-(6, '9865', '09865', 'User'),
-(7, 'ADMIN', 'ADMIN', 'Admin'),
-(8, '2456', 'password', 'User'),
-(9, '78965', 'password', 'User'),
-(10, '567567', '317677', 'User'),
-(11, '678676', '102074', 'User');
+INSERT INTO `userLogin` (`userID`, `idnumber`, `password`, `accountType`, `email`) VALUES
+(1, '12345', 'mantsanitas', 'user', 'dadelahi.raj@gmail.com'),
+(2, '0', '', 'User', ''),
+(3, '0', '', 'User', ''),
+(4, '45678', 'password', 'User', ''),
+(5, '5786', '05786', 'User', ''),
+(6, '9865', '09865', 'User', ''),
+(7, 'ADMIN', '123', 'Admin', ''),
+(8, '2456', 'password', 'User', ''),
+(9, '78965', 'password', 'User', ''),
+(10, '567567', '317677', 'User', 'yannacamacho18@gmail.com'),
+(11, '678676', '102074', 'User', ''),
+(12, '18722991', '267052', 'Moderator', '');
 
 --
 -- Indexes for dumped tables
@@ -200,13 +205,13 @@ ALTER TABLE `postImages`
 -- AUTO_INCREMENT for table `reaction`
 --
 ALTER TABLE `reaction`
-  MODIFY `reactionID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `reactionID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `userLogin`
 --
 ALTER TABLE `userLogin`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
