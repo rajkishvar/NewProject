@@ -1,4 +1,5 @@
 <?php 
+    session_start();
 
     require('dbconnect.php');
 
@@ -18,9 +19,9 @@
             $_SESSION['userID']=$userID;
             $_SESSION['email']=$email;
             $_SESSION['studentID']=$idNumber;
-            $_POST['email']=$email;
 
-            echo $email;
+            $newEmail = $_SESSION['email'];
+
            header('location:sendCode.php');
         }else{
             echo"<script> 

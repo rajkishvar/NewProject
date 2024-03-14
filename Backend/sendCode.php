@@ -9,7 +9,6 @@
     }
     session_start();
     $userEmail = $_SESSION["email"];
-    $email=$_POST['email'];
     echo "$email";
 
     $otp = generateOTP();
@@ -32,7 +31,7 @@
 
         // Recipients
         $mail->setFrom('catherinianbuzz@gmail.com', 'CatherinianBuzz.com');
-        $mail->addAddress($email); // User's email
+        $mail->addAddress($userEmail); // User's email
 
         // Content
         $mail->isHTML(true);
