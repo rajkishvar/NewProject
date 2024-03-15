@@ -9,9 +9,10 @@
     $userID=$_SESSION['userID'];
     $newPassword=$_POST['newPassword'];
     $confirmPassword=$_POST['confirmPassword'];
+    $studentID = $_SESSION['studentID'];
 
     if($newPassword==$confirmPassword){
-        $sql="UPDATE userLogin SET password='$newPassword' WHERE userID='$userID'";
+        $sql="UPDATE userLogin SET password='$newPassword' WHERE userID='$userID' OR idnumber = '$studentID' ";
         $resultsql=mysqli_query($conn,$sql);
         echo"<script>
              alert('Password Successfully Chaged');

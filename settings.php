@@ -1,15 +1,24 @@
 <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    session_start();
+
+    require('Backend/dbconnect.php');
+    $userID=$_SESSION['userID'];
 
 ?>
     <html>
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< Updated upstream
-=======
+
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
             <link rel = "stylesheet" href = "Static/CSS/settings.css">
->>>>>>> Stashed changes
+
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
             <link rel="stylesheet" href="Static/CSS/style.css">
             <link rel="icon" href="Static/Images/LOGO/favicon.ico">
             <title>Catherinan Buzz</title>
@@ -18,31 +27,7 @@
         <body>
             <!-- top navigation -->
             <header class="nav-bar">
-<<<<<<< Updated upstream
-                <div class="logo">
-                    <a href="/">
-                        <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
-                        <p>
-                            CatherinanBUZZ
-                        </p>
-                    </a>
-                </div>
-                <div class="bottom-menu">
-                    <nav class="buttons">
-                        <ul>
-                            <li><a href="homePage.php">HOME</a></li>
-                            <li><a href="settings.php">SETTINGS</a></li>
-                            <li><a href="http://example.com">FORUMS</a></li>
-                            <li><a href="http://example.com">ABOUT US</a></li>
-                            <div class="search">
-                                <input type="text" placeholder="Search Here">
-                                <img src="Static/Images/Icons/search.jpg" alt="search-icon">
-                            </div>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-=======
+
             <div class="logo">
                 <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
                 <a href="homePage.php">
@@ -93,6 +78,7 @@
                                 window.addEventListener ('resize', resetMenu);
             </script>
         </header>
+
             <!-- .......... -->
             <div class="settings">
                 <?php 
@@ -119,6 +105,11 @@
                 </div>
             </div>
             <!-- .......... -->
->>>>>>> Stashed changes
+
         </body>
+<script>
+    document.getElementById("changePassButton").addEventListener("click", function() {
+        window.location.href = "changePassword.php";
+    });
+</script>
     </html>

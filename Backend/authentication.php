@@ -25,21 +25,18 @@
                     window.location.href='../changePassword.php';
                 </script>";
         }else{
-            if($accountType=="ADMIN"){
+            if($accountType=="Admin"){
                 echo"<script>
                     alert('Welcome Back, Admin');
-                    window.location.href='../Admin/home.php';
+                    window.location.href='../homeAdmin.php';
                 </script>";
 
-<<<<<<< Updated upstream
-=======
+
             }else if($accountType=="Moderator"){
                 echo"<script>
-                        alert('Welcome Back, Moderator');
-                        window.location.href='../homeMod.php';
+                        alert('Welcome Back, Admin');
+                        window.location.href='../Admin/home.php';
                     </script>";
-
->>>>>>> Stashed changes
             }
             echo"<script>
                     alert('Welcome Back');
