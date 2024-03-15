@@ -169,74 +169,8 @@
                     <!-- display Posts -->
                         <!-- div for post  -->
                         <div class="posts">
-<<<<<<< Updated upstream
-                            <div class="post-info">
-                            <?php 
-                                $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
-                                            INNER JOIN postImages ON post.postID=postImages.postID
-                                            INNER JOIN userLogin ON post.userID = userLogin.userID
-                                            WHERE post.status='Published'
-                                            ORDER BY post.date DESC";
-                                $resultFetchPost=mysqli_query($conn,$fetchPosts);  
-                                $currentPostID=null;
-
-                                while($row=mysqli_fetch_array($resultFetchPost)){
-                                    if($row['postID'] !==$currentPostID){
-                                        ?>
-                                        <div class="profile-posts">
-                                            <img src="Static/Images/Profile/profile-1.jpg">
-                                            <a><?php echo $row['userID']?></a><br>
-                                        </div>
-                                        <div class="post-text">
-                                            <div class="post-title">
-                                                TITLE HERE
-                                            </div>
-                                            <div class="post-info-text">
-                                                <a><?php echo $row['bio']?></a>
-                                            </div>
-                                            <div> 
-                                                <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
-                                                </div>
-                                        </div>
-                
-                                        
-
-                                    <!-- div for Interaction buttons -->
-                                    <div class="post-votes">
-                                        <div class = "likes">
-                                            <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
-                                                <input type="hidden" name="reaction" value="Like">
-                                                <div class="like-counter">
-                                                    <?php echo $row['likes']?>
-                                                </div>
-                                                
-                                                    <button>Like</button>
-                                                
-                                            </form>
-                                        </div>
-                                        <div class = "dislikes">
-                                            <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
-                                                <input type="hidden" name="reaction" value="Dislike">
-                                                <div class = "dislike-counter">
-                                                    <?php echo $row['dislikes']?>
-                                                </div>
-                                                <button>Dislike</button>
-                                                
-                                            </form>
-                                        </div>
-                                        <form method="POST" action="viewPost.php?postID=<?php echo $row['postID']?>">
-                                            <button>View Post</button>
-                                        </form>
-                                    </div>
-                                    <!-- end of interaction div -->
-
-
-                                <?php
-                                $currentPostID = $row['postID'];
-=======
                             
                                 <div class="post-info">
->>>>>>> Stashed changes
                                 
                                 <?php 
                                     $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
