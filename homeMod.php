@@ -20,7 +20,7 @@
     <header class="nav-bar">
             <div class="logo">
                 <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
-                <a href="homePage.php">
+                <a href="homeMod.php">
                     
                     <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
                     <p>
@@ -32,8 +32,8 @@
                 
                 <nav id="buttons">
                     
-                        <a href="homeAdmin.php">HOME</a>
-                        <a href="settings.php">SETTINGS</a>
+                        <a href="homeMod.php">HOME</a>
+                        <a href="homeMod.php">SETTINGS</a>
                         <a href="games.php">GAMES</a>
                         <a href="aboutUs.php">ABOUT US</a>
                         <div class="search">
@@ -97,9 +97,8 @@
                             <div class="profile-picture">
                                 <img src="Static/Images/Profile/profile-1.jpg">
                             </div>
-                            <button id = "addAccountsButton">Add Account</button>
                             <div class="sidebar-info-profilebutton">
-                                ADMIN
+                                MODERATOR
                                 
                             </div>
                         </div>
@@ -124,12 +123,6 @@
                     </div>
                 </section>
             <section class="feed-section">
-                    <div class="title">
-                        Post Verification Inbox
-                    </div>
-                <div class="post-details">
-
-
                 <!-- div for post  -->
                 <div class="posts">
                     <div class="post-info">
@@ -200,7 +193,6 @@
                     </div>
                     
                 <!-- <div class="post-details">
-
                     <div class="post-details-title">
                         Post's Details
                     </div>
@@ -253,8 +245,6 @@
 
     </body>
     <script>
-    document.getElementById("addAccountsButton").addEventListener("click", function() {
-        window.location.href = "Admin/createAccounts.php";
-    });
+    
 </script>
 </html>

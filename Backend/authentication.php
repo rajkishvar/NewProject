@@ -31,12 +31,12 @@
                     window.location.href='../homeAdmin.php';
                 </script>";
 
+
             }else if($accountType=="Moderator"){
                 echo"<script>
                         alert('Welcome Back, Admin');
                         window.location.href='../Admin/home.php';
                     </script>";
-
             }
             echo"<script>
                     alert('Welcome Back');
