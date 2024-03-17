@@ -34,8 +34,8 @@
 
             }else if($accountType=="Moderator"){
                 echo"<script>
-                        alert('Welcome Back, Admin');
-                        window.location.href='../Admin/home.php';
+                        alert('Welcome Back, Moderator');
+                        window.location.href='../homeMod.php';
                     </script>";
             }
             echo"<script>

@@ -132,6 +132,13 @@
 
                 <!-- div for post  -->
                 <div class="posts">
+                    
+                <!-- div for post ends here -->
+
+
+                    <div class="title">
+                        Post Verification Inbox
+                    </div>
                     <div class="post-info">
                     <?php 
                         $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
@@ -151,15 +158,13 @@
                                     <a><?php echo $row['userID']?></a><br>
                                 </div>
                                 <div class="post-text">
-                                    <div class="post-title">
-                                        TITLE HERE
-                                    </div>
+                        
                                     <div class="post-info-text">
                                         <a><?php echo $row['bio']?></a>
                                     </div>
                                     <div> 
                                         <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
-                                        </div>
+                                    </div>
                                 </div>
         
                                 
@@ -192,13 +197,6 @@
                         }
                     ?>
                     </div>
-                <!-- div for post ends here -->
-
-
-                    <div class="title">
-                        Post Verification Inbox
-                    </div>
-                    
                 <!-- <div class="post-details">
 
                     <div class="post-details-title">
