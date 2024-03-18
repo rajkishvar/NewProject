@@ -13,10 +13,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="Static/CSS/style.css">
         <link rel="icon" href="Static/Images/LOGO/favicon.ico">
         <title>Catherinan Buzz</title>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+        
     </head>
     <body>
          <!-- top navigation -->
@@ -32,14 +34,6 @@
                 </a>
             </div>
             <div class="bottom-menu">
-<<<<<<< Updated upstream
-                <nav class="buttons">
-                    <ul>
-                        <li><a href="homePage.php">HOME</a></li>
-                        <li><a href="http://example.com">SETTINGS</a></li>
-                        <li><a href="http://example.com">FORUMS</a></li>
-                        <li><a href="http://example.com">ABOUT US</a></li>
-=======
                 
                 <nav id="buttons">
                     
@@ -47,18 +41,13 @@
                         <a href="settings.php">SETTINGS</a>
                         <a href="games.php">GAMES</a>
                         <a href="aboutUs.php">ABOUT US</a>
->>>>>>> Stashed changes
+
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <img src="Static/Images/Icons/search.jpg" alt="search-icon">
                         </div>
-<<<<<<< Updated upstream
-                    </ul>
-=======
-                        <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
 
-                    
->>>>>>> Stashed changes
+                        <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
                 </nav>
             </div>
             <script>
@@ -167,89 +156,96 @@
                         <form action="Backend/processPost.php" method="POST" enctype="multipart/form-data">
                             <label for="bio">Bio or Description:</label><br>
                             <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
-
-                            <label for="images">Upload Images (Max 5):</label><br>
+                            <div class = "submit-form">
+                                <label for="images">Upload Images (Max 5):</label><br>
+                                <button type="submit">Submit</button>
+                            </div>
                             <input type="file" id="images" name="images[]" accept="image/*" multiple><br><br>
-
-                            <button type="submit">Submit</button>
                         </form>
                     </div>
                     <!-- end of create post panel -->
                     <!-- display Posts -->
                         <!-- div for post  -->
                         <div class="posts">
-                            <div class="post-info">
-                            <?php 
-                                $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
-                                            INNER JOIN postImages ON post.postID=postImages.postID
-                                            INNER JOIN userLogin ON post.userID = userLogin.userID
-                                            ORDER BY post.postID";
-                                $resultFetchPost=mysqli_query($conn,$fetchPosts);  
-                                $currentPostID=null;
-
-                                while($row=mysqli_fetch_array($resultFetchPost)){
-                                    if($row['postID'] !==$currentPostID){
-                                        ?>
-                                        <div class="profile-posts">
-                                            <img src="Static/Images/Profile/profile-1.jpg">
-                                            <a><?php echo $row['userID']?></a><br>
-                                        </div>
-                                        <div class="post-text">
-                                            <div class="post-title">
-                                                TITLE HERE
-                                            </div>
-                                            <div class="post-info-text">
-                                                <a><?php echo $row['bio']?></a>
-                                            </div>
-                                            <div> 
-                                                <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
-                                                </div>
-                                        </div>
-                
-                                        
-
-                                    <!-- div for Interaction buttons -->
-                                    <div class="post-votes">
-                                        <div class = "likes">
-                                            <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
-                                                <input type="hidden" name="reaction" value="Like">
-                                                <div class="like-counter">
-                                                    <?php echo $row['likes']?>
-                                                </div>
-                                                
-                                                    <button>Like</button>
-                                                
-                                            </form>
-                                        </div>
-                                        <div class = "dislikes">
-                                            <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
-                                                <input type="hidden" name="reaction" value="Dislike">
-                                                <div class = "dislike-counter">
-                                                    <?php echo $row['dislikes']?>
-                                                </div>
-                                                <button>Dislike</button>
-                                                
-                                            </form>
-                                        </div>
-                                        <form method="POST" action="viewPost.php?postID=<?php echo $row['postID']?>">
-                                            <button>View Post</button>
-                                        </form>
-                                    </div>
-                                    <!-- end of interaction div -->
-
-
-                                <?php
-                                $currentPostID = $row['postID'];
+                            
+                                <div class="post-info">
                                 
+                                <?php 
+                                    $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
+                                                INNER JOIN postImages ON post.postID=postImages.postID
+                                                INNER JOIN userLogin ON post.userID = userLogin.userID
+                                                WHERE post.status='Published'
+                                                ORDER BY post.date DESC";
+                                    $resultFetchPost=mysqli_query($conn,$fetchPosts);  
+                                    $currentPostID=null;
+                                    
+                                    while($row=mysqli_fetch_array($resultFetchPost)){
+                                        if($row['postID'] !==$currentPostID){
+                                            ?>
+                                            <div class="profile-posts">
+                                                <img src="Static/Images/Profile/profile-1.jpg">
+                                                <a><?php echo $row['userID']?></a><br>
+                                            </div>
+                                            <div class="post-text">
+                                                <div class="post-info-text">
+                                                    <a><?php echo $row['bio']?></a>
+                                                </div>
+                                                <div class = "post-text-img"> 
+                                                    <img src="Uploads/Posts/<?php echo $row['imagePath']?>">
+                                                    </div>
+                                            </div>
+                                    
+                                            
+                                        
+                                        <!-- div for Interaction buttons -->
+                                        <div class="post-votes">
+                                            <div class = "likes">
+                                                <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
+                                                    <input type="hidden" name="reaction" value="Like">
+                                                    <div class="like-counter">
+                                                        <button>⇧</button>
+                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                    
+                                                </form>
+                                            </div>
+                                            <?php echo $row['likes']?>
+                                            <div class = "dislikes">
+                                                <form method="POST"action="Backend/addReaction.php?postID=<?php echo $row['postID']?>">
+                                                    <input type="hidden" name="reaction" value="Dislike">
+                                                    <div class = "dislike-counter">
+                                                    <button>⇩</button>
+                                                    </div>
+                                                    
+                                                    
+                                                </form>
+                                            </div>
+                                            <form method="POST" action="viewPost.php?postID=<?php echo $row['postID']?>">
+                                                <button class = "viewpost">View Post</button>
+                                            </form>
+                                            
+                                        </div>
+                                        <!-- end of interaction div -->
+
+                                    
+                                    <?php
+                                    $currentPostID = $row['postID'];
+                                    
+                                        }
+                                    ?>
+                                <!-- div for photos from posts -->
+                                
+                                <!-- end of div  -->
+                                
+                                <?php
                                     }
                                 ?>
-                            <!-- div for photos from posts -->
+                                </div>
                                 
-                            <!-- end of div  -->
-                            <?php
-                                }
-                            ?>
-                            </div>
+                            
+                            
                         <!-- div for post ends here -->
                  
                         </div>

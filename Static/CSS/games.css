@@ -1,0 +1,33 @@
+    
+   .games-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 80%;
+        margin: auto;
+        height: 100%;
+        padding: 50px;
+        background-color: rgb(255 255 255 / 0.75);
+        place-items: center;
+        
+       border: 1px solid grey; 
+       border-radius: 10px;
+        justify-content: center;
+        padding-top: 50px;
+   }
+   .games img{
+     width: 100%;
+   }
+   .games{
+        width: 50%;
+        border: 1px solid grey;
+        border-radius: 10px;
+        font-size: 30px;
+   }
+   .title{
+        text-align: center;
+        background-color: rgb(255 255 255 / 0.75);
+        width: 80%;
+        font-size: 60px;
+        margin: auto;
+   }
+    
