@@ -158,8 +158,6 @@
                             <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br><br>
                             <div class = "submit-form">
                                 <label for="images">Upload Images (Max 5):</label><br>
-                                
-
                                 <button type="submit">Submit</button>
                             </div>
                             <input type="file" id="images" name="images[]" accept="image/*" multiple><br><br>
