@@ -32,10 +32,13 @@
                 
                 <nav id="buttons">
                     
+
+
                         <a href="homeAdmin.php">HOME</a>
                         <a href="settings.php">SETTINGS</a>
                         <a href="games.php">GAMES</a>
                         <a href="aboutUs.php">ABOUT US</a>
+
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <img src="Static/Images/Icons/search.jpg" alt="search-icon">
@@ -124,9 +127,6 @@
                     </div>
                 </section>
             <section class="feed-section">
-                    <div class="title">
-                        Post Verification Inbox
-                    </div>
                 <div class="post-details">
 
 

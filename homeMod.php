@@ -33,9 +33,6 @@
                 <nav id="buttons">
                     
                         <a href="homeMod.php">HOME</a>
-                        <a href="homeMod.php">SETTINGS</a>
-                        <a href="games.php">GAMES</a>
-                        <a href="aboutUs.php">ABOUT US</a>
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <img src="Static/Images/Icons/search.jpg" alt="search-icon">
