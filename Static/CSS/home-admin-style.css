@@ -1,7 +1,19 @@
+<<<<<<< Updated upstream
 .feed-section{
     display: grid;
     grid-template-columns: 3fr .5fr;
     
+=======
+
+
+.feed-section{
+    display: grid;
+    grid-template-columns: 1fr !important;
+    width: 100%;
+}
+#sidebar{
+    width: 350px;
+>>>>>>> Stashed changes
 }
 .post-details{
     display: flex;
@@ -11,6 +23,24 @@
     padding: 10px;
     place-items: center;
 }
+<<<<<<< Updated upstream
+=======
+#buttons {
+    grid-template-columns: 3fr 1fr 1fr;
+    justify-content: space-around;
+}
+#buttons a{
+    width: 30%;
+}
+.post{
+    margin: auto;
+}
+.post-votes{
+    display: flex;
+    flex-direction: row;
+}
+
+>>>>>>> Stashed changes
 .post-details-info{
     text-align: center;
 }

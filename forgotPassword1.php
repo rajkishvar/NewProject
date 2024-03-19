@@ -30,20 +30,11 @@
             </div>
         </div>
         <div class="login-table">
-            <form action="Backend/authentication.php" method="POST">
-                <input type="Text" name="studentIDnum" placeholder="Student ID number"></input>
-                <input type="password" name="password"placeholder="Password"/>
-                <button type ="submit">SUBMIT</button>
-            </form>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-            <button id = "forgot"><a href="forgotPassword.php">Forgot Password</a></button>
->>>>>>> Stashed changes
-            
-=======
-            <button id = "forgot"><a href="forgotPassword1.php">Forgot Password</a></button>  
->>>>>>> Stashed changes
-        </div>
+                <form method="post" action="Backend/verifyAccount.php" name="signin-form">
+                    <input type="text" name="studentID" id="studentID" class="form-control my-4 py-2" placeholder="Enter Student ID" />
+                    <div class="text-center mt-3">
+                        <button class="btn btn-primary">Submit</button> 
+                    </div>
+                </form>
     </div>
 </html>

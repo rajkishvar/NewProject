@@ -15,6 +15,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="Static/CSS/login-css.css">
             <link rel="stylesheet" href="Static/CSS/style.css">
+            <link href="https://fonts.cdnfonts.com/css/old-english-five" rel="stylesheet">
             <link rel="icon" href="Images/LOGO/favicon.ico">
             <title>Catherinan Buzz</title>
     </head>
@@ -22,7 +23,7 @@
         <div class="login-info">
             <div class="login-title">
                 <div class="login-picture">
-                    <img src="Images/LOGO/logo.jpg.jpg">
+                    <img src="Static/Images/LOGO/logo.png">
                 </div>
                 <div class="login-title-text">
                     Catherinan Buzz
