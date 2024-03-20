@@ -67,10 +67,15 @@
                                 document.getElementById('hamburger-image').addEventListener('click', mobileMenu);
                                     
                                 function resetMenu (){
+                                    var y = document.getElementById("side-button");
                                     if (window.innerWidth>=900) {
                                         document.getElementById('buttons').style.display='grid';
+                                        document.getElementById('sidebar').style.display='flex';
+                                        
                                     } else if (window.innerWidth < 900){
                                         document.getElementById('buttons').style.display='none';
+                                        document.getElementById('sidebar').style.display='none';
+                                        y.innerText='Show';
                                     }
                                 }
                                 window.addEventListener ('resize', resetMenu);
@@ -88,57 +93,66 @@
                     if($rows>0){
                         while($row=mysqli_fetch_array($resultAccount)){
                 ?>
-                <section id="sidebar">
-                    <div class="related-questions-title">
-                        <h1>Related Questions</h1>
-                    </div>
-                    <div class="sidebar-info">
-                        <div id = "hidebar">
-                            <div class="sidebar-info-questions">
-                                <div>
-                                    Question one
+                <div class = "sidebar-container">
+                    <section id="sidebar" class="sticky">
+                        <div class="related-questions-title">
+                            <h1>Related Questions</h1>
+                        </div>
+                        <div class="sidebar-info">
+                            <div id = "hidebar">
+                                <div class="sidebar-info-questions">
+                                    <div>
+                                        Question one
+                                    </div>
+                                    <div>
+                                        Question two
+                                    </div>
+                                    <div>
+                                        Question three
+                                    </div>
+                                    <div>
+                                        Question four
+                                    </div>
                                 </div>
-                                <div>
-                                    Question two
+                                <div class="sidebar-info-bio">
+                                    <div>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
                                 </div>
-                                <div>
-                                    Question three
+                                <div class="profile-picture">
+                                    <img src="Static/Images/Profile/profile-1.jpg">
                                 </div>
-                                <div>
-                                    Question four
+                                <div class="sidebar-info-profilebutton">
+                                    <h6><?php echo $row['accountType']?></h6>
+                                    
                                 </div>
                             </div>
-                            <div class="sidebar-info-bio">
-                                <div>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </div>
-                            </div>
-                            <div class="profile-picture">
-                                <img src="Static/Images/Profile/profile-1.jpg">
-                            </div>
-                            <div class="sidebar-info-profilebutton">
-                                <h6><?php echo $row['accountType']?></h6>
+                            <div class="sidebar-info-hidebar-button">
                                 
                             </div>
-                        </div>
-                        <div class="sidebar-info-hidebar-button">
-                            
-                        </div>
-                        <script>
-                            function toggle(){
-                                var x = document.getElementById("sidebar");
-                                if(x.style.display === "none"){
-                                    x.style.display = "block";
+                            <script>
+                                function toggle(){
+                                    var x = document.getElementById("sidebar");
+                                    var y = document.getElementById("side-button");
+                                    if(x.style.display === "none"){
+                                        x.style.display = "block";
+                                        console.log("Side bar is now visible");
+                                        y.innerText ="Hide";
+                                    }
+                                    else{
+                                        x.style.display = "none";
+                                        console.log("Side bar is now hidden");
+                                        y.innerText ="Show";
+                                    }
                                 }
-                                else{
-                                    x.style.display = "none";
-                                }
-                            }
-                                
-                        </script>
-                    </div>
-                </section>
-
+                                    
+                            </script>
+                        </div>
+                    </section>
+                    <button onclick ="toggle()" id="side-button">
+                                Hide
+                            </button>
+                </div>
                 <?php 
                         }
                     }
@@ -153,9 +167,7 @@
             
                     <!-- create Post panel -->
                     <div>
-                    <button onclick ="toggle()" id="side-button">
-                                Hide Bar
-                            </button>
+                    
                     <h4>Create Post</h4>
                         <form action="Backend/processPost.php" method="POST" enctype="multipart/form-data">
                             <label for="bio">Bio or Description:</label><br>

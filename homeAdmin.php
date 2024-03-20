@@ -34,7 +34,7 @@
                 
                 <nav id="buttons">
                     
-
+                        <a href="homeAdmin.php">HOME</a>
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <button>
@@ -48,11 +48,11 @@
             </div>
             <script>
                 function mobileMenu() {
-                                if (document.getElementById('buttons').style.display =="grid"){
+                                if (document.getElementById('buttons').style.display =="flex"){
                                     document.getElementById('buttons').style.display ="none";
                                 }
                                 else {
-                                    document.getElementById('buttons').style.display ="grid";
+                                    document.getElementById('buttons').style.display ="flex";
                                 }
                                 
                                 
@@ -60,83 +60,95 @@
                                 document.getElementById('hamburger-image').addEventListener('click', mobileMenu);
                                     
                                 function resetMenu (){
+                                    var y = document.getElementById("side-button");
                                     if (window.innerWidth>=900) {
                                         document.getElementById('buttons').style.display='grid';
+                                        document.getElementById('sidebar').style.display='flex';
+                                        
                                     } else if (window.innerWidth < 900){
                                         document.getElementById('buttons').style.display='none';
+                                        document.getElementById('sidebar').style.display='none';
+                                        y.innerText='Show';
                                     }
                                 }
                                 window.addEventListener ('resize', resetMenu);
             </script>
         </header>
         <main>
-        <section id="sidebar">
-                    <div class="related-questions-title">
-                        <h1>Related Questions</h1>
-                    </div>
-                    <div class="sidebar-info">
-                        <div id = "hidebar">
-                            <div class="sidebar-info-questions">
-                                <div>
-                                    Question one
+        <div class = "sidebar-container">
+                    <section id="sidebar" class="sticky">
+                        <div class="related-questions-title">
+                            <h1>Related Questions</h1>
+                        </div>
+                        <div class="sidebar-info">
+                            <div id = "hidebar">
+                                <div class="sidebar-info-questions">
+                                    <div>
+                                        Question one
+                                    </div>
+                                    <div>
+                                        Question two
+                                    </div>
+                                    <div>
+                                        Question three
+                                    </div>
+                                    <div>
+                                        Question four
+                                    </div>
                                 </div>
-                                <div>
-                                    Question two
+                                <div class="sidebar-info-bio">
+                                    <div>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
                                 </div>
-                                <div>
-                                    Question three
+                                <div class="profile-picture">
+                                    <img src="Static/Images/Profile/profile-1.jpg">
                                 </div>
-                                <div>
-                                    Question four
+                                <button id = "addAccountsButton">Add Account</button>
+                                <div class="sidebar-info-profilebutton">
+                                    <h6>ADMIN</h6>
+                                    
                                 </div>
                             </div>
-                            <div class="sidebar-info-bio">
-                                <div>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </div>
-                            </div>
-                            <div class="profile-picture">
-                                <img src="Static/Images/Profile/profile-1.jpg">
-                            </div>
-                            <button id = "addAccountsButton">Add Account</button>
-                            <div class="sidebar-info-profilebutton">
-                                ADMIN
+                            <div class="sidebar-info-hidebar-button">
                                 
                             </div>
+                            <script>
+                                function toggle(){
+                                    var x = document.getElementById("sidebar");
+                                    var y = document.getElementById("side-button");
+                                    if(x.style.display === "none"){
+                                        x.style.display = "block";
+                                        console.log("Side bar is now visible");
+                                        y.innerText ="Hide";
+                                    }
+                                    else{
+                                        x.style.display = "none";
+                                        console.log("Side bar is now hidden");
+                                        y.innerText ="Show";
+                                    }
+                                }
+                                    
+                            </script>
                         </div>
-                        
-                        <div class="sidebar-info-hidebar-button">
-                            <button onclick ="toggle()" id="side-button">
-                                Hide Bar
+                    </section>
+                    <button onclick ="toggle()" id="side-button">
+                                Hide
                             </button>
-                        </div>
-                        <script>
-                            function toggle(){
-                                var x = document.getElementById("hidebar");
-                                if(x.style.display === "none"){
-                                    x.style.display = "block";
-                                }
-                                else{
-                                    x.style.display = "none";
-                                }
-                            }
-                                
-                        </script>
-                    </div>
-                </section>
+                </div>
             <section class="feed-section"> 
                 <div class="post-details">
 
-
+                <div class="title">
+                        Post Verification Inbox
+                    </div>
                 <!-- div for post  -->
                 <div class="posts">
                     
                 <!-- div for post ends here -->
 
 
-                    <div class="title">
-                        Post Verification Inbox
-                    </div>
+                    
                     <div class="post-info">
                     <?php 
                         $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post

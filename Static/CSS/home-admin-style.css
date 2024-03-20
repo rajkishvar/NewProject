@@ -1,24 +1,11 @@
 
-.feed-section{
-    display: grid;
-    grid-template-columns: 3fr .5fr;
-    
 
 
-
-.feed-section{
-    display: grid;
-    grid-template-columns: 1fr !important;
-    width: 100%;
-}
 #sidebar{
-    width: 350px;
+   width: 350px;
+}
 
-}
-.feed-section{
-    display: grid;
-    grid-template-columns: 1fr !important;
-}
+
 .post-details{
     display: flex;
     flex-direction: column;
@@ -67,5 +54,11 @@
         display: flex;
         flex-direction: row;
     }
-    
+    #sidebar{
+        width: 100%;
+    }
+    #buttons{
+        flex-direction: column;
+    }
+
 }
