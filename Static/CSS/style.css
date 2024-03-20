@@ -9,6 +9,10 @@ a {
 .post-votes button{
     position: relative;
 }
+.post-votes{
+    display: flex;
+    flex-direction: column;
+}
 .likes form,.dislikes form{
     display: flex;
     flex-direction: row;
@@ -27,6 +31,42 @@ a {
 }
 .logo a p{
     font-family: 'Old English Five', sans-serif;
+}
+.post-text{
+    margin: 50px;
+    border: 1px solid grey;
+   border-radius: 10px;
+}
+.submit-form{
+    display: flex;
+    flex-direction: row;
+    column-gap: 30px;
+}
+.post-votes .viewpost{
+    font-size: 20px !important;
+}
+.post-info-text{
+    padding-left: 15px;
+}
+.post-info-text, .post-bio a{
+    overflow-wrap: break-word;
+    width: 600px;
+}
+.profile-posts{
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.post-text-img img{
+    display: inline-block;
+    border-radius: 5px;
+    width:100% !important;
+    height:90% !important;
+    max-width: 300px !important;
+    max-height: 300px!important;
+    margin-left:16px;
+    margin-right:0px;
+
 }
 /* Header */
 .nav-bar {
@@ -71,10 +111,12 @@ a {
     border-radius: 50%;
     height: 100%;
 }
-.post-img{
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-    
+
+.post-container{
+    border: solid 1px;
+}
+.like-counter, .dislike-counter{
+    text-align: center;
 }
 #buttons #log-out a{
     display: flex;
@@ -94,22 +136,27 @@ a {
     row-gap: 20px;
     width: 100%;
     justify-content: center;
-    
+    border-bottom: 1px solid;
+    border-radius: 10px;
+    align-items: center;
 }
+
 .post-info .post-votes{
     display: flex;
     flex-direction: column;
-    text-align: right;
+    align-items: center;
+    justify-content: center;
 }
 .post-title{
     margin-bottom: 20px;
 }
-.post-text{
-    background-color: whitesmoke;
-}
 .post-votes button{
     padding: 20px;
     width: 100%;
+    border: none;
+    background-color: rgb(255 255 255 / 0);
+    border-radius: 50px;
+    font-size: 40px;
 
 }
 .post-votes button :active{
@@ -193,7 +240,6 @@ main {
 }
 .related-questions-title h1{
     margin: auto;
-    width: 35vh;
     border-bottom: grey solid 1px;
 }
 .sidebar-info{
@@ -220,6 +266,7 @@ main {
     row-gap: 20px;
     background-color: rgb(255 255 255 / 0.5);
     padding: 20px;
+    margin-top: 10px !important;
     border: grey solid 1px;
     
 }
@@ -241,6 +288,11 @@ main {
         margin-top: 20px;
         row-gap: 10px;
     }
+    .post-text{
+        margin: 10px;
+        padding: 20px;
+        padding-bottom: 50px;
+    }
     main{
         
         flex-direction: column;
@@ -251,11 +303,14 @@ main {
 
 
     }
-<<<<<<< Updated upstream
-=======
+
     .feed-section{
         margin:auto;
         width: 100%;
+
+    .feed-section{
+        margin:auto;
+
     }
     .posts .post-info{
         display: flex;
@@ -269,8 +324,9 @@ main {
         flex-direction: row;
         border-bottom: 1px solid grey;
     }
+
     #sidebar{
         margin: 10%;
     }
->>>>>>> Stashed changes
+
 }

@@ -1,9 +1,9 @@
-<<<<<<< Updated upstream
+
 .feed-section{
     display: grid;
     grid-template-columns: 3fr .5fr;
     
-=======
+
 
 
 .feed-section{
@@ -13,7 +13,11 @@
 }
 #sidebar{
     width: 350px;
->>>>>>> Stashed changes
+
+}
+.feed-section{
+    display: grid;
+    grid-template-columns: 1fr !important;
 }
 .post-details{
     display: flex;
@@ -23,8 +27,7 @@
     padding: 10px;
     place-items: center;
 }
-<<<<<<< Updated upstream
-=======
+
 #buttons {
     grid-template-columns: 3fr 1fr 1fr;
     justify-content: space-around;
@@ -32,6 +35,7 @@
 #buttons a{
     width: 30%;
 }
+
 .post{
     margin: auto;
 }
@@ -40,9 +44,15 @@
     flex-direction: row;
 }
 
->>>>>>> Stashed changes
+
 .post-details-info{
     text-align: center;
+}
+.post-votes div form button{
+    font-size : 15px;
+    background-color: white;
+    border: 1px solid;
+    color: black;
 }
 .post-details .post-id, .post-details .post-user{
     display: flex;
@@ -51,4 +61,11 @@
 }
 .publish button{
     padding: 10px;
+}
+@media (max-width:900px) {
+    .post-votes div{
+        display: flex;
+        flex-direction: row;
+    }
+    
 }

@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="Static/CSS/style.css">
         <link href="https://fonts.cdnfonts.com/css/old-english-five" rel="stylesheet">
         <link rel="icon" href="Static/Images/LOGO/favicon.ico">
+        <link rel ="stylesheet" href = "Static/CSS/games.css">
         <title>Catherinan Buzz</title>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
     </head>
@@ -68,4 +69,24 @@
                                 window.addEventListener ('resize', resetMenu);
             </script>
         </header>
+        <div class = "title">GAMES</title>
+        <div class = "games-container">
+            
+                <div class = "games">
+                    <a href ="https://agar.io/"><img src = "Static/Images/Games/game-1.png"></a>
+                    AGAR
+                </div>
+                <div class = "games">
+                    <a href ="https://slither.io/"><img src = "Static/Images/Games/game-2.jpg"></a>
+                    SLITHER
+                </div>
+                <div class = "games">
+                    <a href ="https://gartic.com/"><img src = "Static/Images/Games/game-3.png"></a>
+                    GARTIC
+                </div>
+                <div class = "games">
+                    <a href ="https://krunker.io/"><img src = "Static/Images/Games/game-4.jpg"></a>
+                    KRUNKER
+                </div>
+        </div>
 </html>

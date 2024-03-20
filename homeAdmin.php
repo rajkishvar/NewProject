@@ -1,11 +1,16 @@
 <?php
-
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    session_start();
+    require('Backend/dbconnect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="Static/CSS/style.css">
         <link href="https://fonts.cdnfonts.com/css/old-english-five" rel="stylesheet">
         <link rel="stylesheet" href="Static/CSS/home-admin-style.css">
@@ -13,36 +18,7 @@
         <title>Catherinan Buzz</title>
     </head>
     <body>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        <header class="nav-bar">
-            <nav>
-                <div class="logo">
-                    <a href="/">
-                        <img src="Images/LOGO/logo.jpg.jpg" alt="scc_logo">
-                        <p>
-                            CatherinanBUZZ
-                        </p>
-                    </a>
-                </div>
-                <div class="bottom-menu">
-                    <nav class="buttons">
-                        <ul>
-                            <li><a href="home-admin.html">HOME</a></li>
-                            <li><a href="settings.php">SETTINGS</a></li>
-                            <li><a href="http://example.com">FORUMS</a></li>
-                            <li><a href="http://example.com">ABOUT US</a></li>
-                            <div class="search">
-                                <input type="text" placeholder="Search Here">
-                                <img src="Images/Icons/search.jpg" alt="search-icon">
-                            </div>
-                        </ul>
-                    </nav>
-                </div>
-=======
-=======
-    
->>>>>>> Stashed changes
+
     <header class="nav-bar">
             <div class="logo">
                 <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
@@ -58,18 +34,7 @@
                 
                 <nav id="buttons">
                     
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                        <a href="homePage.php">HOME</a>
-                        <a href="settings.php">SETTINGS</a>
-                        <a href="games.php">GAMES</a>
-                        <a href="http://example.com">ABOUT US</a>
-=======
-                        <a href="homeAdmin.php">HOME</a>
->>>>>>> Stashed changes
-=======
-                        <a href="homeAdmin.php">HOME</a>
->>>>>>> Stashed changes
+
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <button>
@@ -103,7 +68,6 @@
                                 }
                                 window.addEventListener ('resize', resetMenu);
             </script>
->>>>>>> Stashed changes
         </header>
         <main>
         <section id="sidebar">
@@ -136,7 +100,7 @@
                             </div>
                             <button id = "addAccountsButton">Add Account</button>
                             <div class="sidebar-info-profilebutton">
-                                <h6><?php echo $row['accountType']?></h6>
+                                ADMIN
                                 
                             </div>
                         </div>
@@ -162,6 +126,77 @@
                 </section>
             <section class="feed-section"> 
                 <div class="post-details">
+
+
+                <!-- div for post  -->
+                <div class="posts">
+                    
+                <!-- div for post ends here -->
+
+
+                    <div class="title">
+                        Post Verification Inbox
+                    </div>
+                    <div class="post-info">
+                    <?php 
+                        $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
+                                    INNER JOIN postImages ON post.postID=postImages.postID
+                                    INNER JOIN userLogin ON post.userID = userLogin.userID
+                                    WHERE post.status='Pending'
+                                    ORDER BY post.postID ";
+                        $resultFetchPost=mysqli_query($conn,$fetchPosts);  
+                        $currentPostID=null;
+
+                        
+                        while($row=mysqli_fetch_array($resultFetchPost)){
+                            if($row['postID'] !==$currentPostID){
+                                ?>
+                                <div class="profile-posts">
+                                    <img src="Static/Images/Profile/profile-1.jpg">
+                                    <a><?php echo $row['userID']?></a><br>
+                                </div>
+                                <div class="post-text">
+                        
+                                    <div class="post-info-text">
+                                        <a><?php echo $row['bio']?></a>
+                                    </div>
+                                    <div> 
+                                        <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
+                                    </div>
+                                </div>
+        
+                                
+
+                            <!-- div for Interaction buttons -->
+                            <div class="post-votes">
+                               <div>
+                                <form action="Backend/verifyPost.php?postID=<?php echo $row['postID']?>" method="POST">
+                                    <input type="hidden"name="status" Value="Published"/>
+                                    <button class="btn btn-success">Publish</button>
+                                </form>
+                                <form action="Backend/verifyPost.php?postID=<?php echo $row['postID']?>" method="POST">
+                                    <input type ="hidden" name ="status" value="Declined">
+                                    <button class="btn btn-danger">Decline</button>
+                                </form>
+                                </div>
+                            </div>
+                            <!-- end of interaction div -->
+
+
+                        <?php
+                        $currentPostID = $row['postID'];
+                        
+                            }
+                        ?>
+                    <!-- div for photos from posts -->
+                        
+                    <!-- end of div  -->
+                    <?php
+                        }
+                    ?>
+                    </div>
+                <!-- <div class="post-details">
+
                     <div class="post-details-title">
                         Post's Details
                     </div>
@@ -203,12 +238,19 @@
                             REJECT
                         </button>
                     </div>
-                </div>
+                </div> -->
+                
 
             
             </section>
+            
         </main>
 
 
     </body>
+    <script>
+    document.getElementById("addAccountsButton").addEventListener("click", function() {
+        window.location.href = "Admin/createAccounts.php";
+    });
+</script>
 </html>

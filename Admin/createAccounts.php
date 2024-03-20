@@ -5,7 +5,7 @@
     require('../Backend/dbconnect.php');
 ?>
 <html>
-<<<<<<< Updated upstream
+
     <form action="../Backend/addAccount.php" method="POST">
         <input type="text" name="studentID" placeholder="Enter New Student ID">
         <button>SUBMIT</button>
@@ -29,7 +29,6 @@
         <?php  }
         }?>
     </table>
-=======
   
 <head>
             <meta charset="UTF-8">
@@ -65,8 +64,7 @@
                             <img src="../Static/Images/Icons/search.jpg" alt="search-icon">
                         </div>
                         <div id = "log-out"><a  href="../Backend/logout.php">Log out</a></div>
-
-                    
+     
                 </nav>
             </div>
             <script>
@@ -84,7 +82,9 @@
                                     
                                 function resetMenu (){
                                     if (window.innerWidth>=900) {
+
                                         document.getElementById('buttons').style.display='grid';
+
                                     } else if (window.innerWidth < 900){
                                         document.getElementById('buttons').style.display='none';
                                     }
@@ -128,5 +128,4 @@
                 </table>
             </div>
     </body>
->>>>>>> Stashed changes
 </html>

@@ -30,49 +30,53 @@
     <title>Catherinan Buzz</title>
 </head>
 <body>
-    <header class="nav-bar">
-        <nav>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="Static/CSS/style.css">
+        <link rel="icon" href="Static/Images/LOGO/favicon.ico">
+        <title>Catherinan Buzz</title>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+         <!-- top navigation -->
+         <header class="nav-bar">
             <div class="logo">
-<<<<<<< Updated upstream
-                <a href="/">
-                    <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
-=======
+
                 <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
                 <a href="homePage.php">
                     
-                    <img src="Static/Images/LOGO/logo.png" alt="scc_logo">
->>>>>>> Stashed changes
+
+                    <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
+
                     <p>
                         CatherinanBUZZ
                     </p>
                 </a>
             </div>
             <div class="bottom-menu">
+                
                 <nav id="buttons">
-<<<<<<< Updated upstream
-                    <ul>
-                        <li><a href="homePage.php">HOME</a></li>
-                        <li><a href="settings.php">SETTINGS</a></li>
-                        <li><a href="http://example.com">FORUMS</a></li>
-                        <li><a href="http://example.com">ABOUT US</a></li>
-=======
+
                     
                         <a href="homePage.php">HOME</a>
                         <a href="settings.php">SETTINGS</a>
                         <a href="homePage.php">FORUMS</a>
                         <a href="aboutUs.php">ABOUT US</a>
->>>>>>> Stashed changes
+
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <button>
                                 <img src="Static/Images/Icons/search.jpg" alt="search-icon">
                             </button>
                         </div>
-                    </ul>
+                        <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
+
+                    
                 </nav>
             </div>
-<<<<<<< Updated upstream
-=======
+
             <script>
                 function mobileMenu() {
                                 if (document.getElementById('buttons').style.display =="flex"){
@@ -88,16 +92,17 @@
                                     
                                 function resetMenu (){
                                     if (window.innerWidth>=900) {
+
                                         document.getElementById('buttons').style.display='grid';
+
                                     } else if (window.innerWidth < 900){
                                         document.getElementById('buttons').style.display='none';
                                     }
                                 }
                                 window.addEventListener ('resize', resetMenu);
             </script>
->>>>>>> Stashed changes
-        </header>
 
+        </header>
 
         <?php 
              while($row=mysqli_fetch_assoc($resultFetch)){
@@ -145,8 +150,9 @@
                 <!-- end of comment form Div -->
 
                 <!-- display comments div -->
+                <h4>COMMENTS</h4>
                 <div class = "comments-list">
-                    <h4>COMMENTS</h4>
+                    
                     <?php 
                         $fetchComments="SELECT * FROM comments WHERE postID='$postID'";
                         $resultComments=mysqli_query($conn,$fetchComments);
@@ -158,11 +164,13 @@
                             <div class = "comment-user">
                                 <a>userID:<?php echo $commentRows['userID']?></a><br/>
                             </div>
-                            <div class = "comment-details">
-                                <a><?php echo $commentRows['comment']?></a><br/>
-                            </div>
-                            <div class = "comment-info">
-                                <a><?php echo $commentRows['dateandtime']?></a><br/><br/>
+                            <div class = comment-detail-container>
+                                <div class = "comment-details">
+                                    <a><?php echo $commentRows['comment']?></a><br/>
+                                </div>
+                                <div class = "comment-info">
+                                    <a><?php echo $commentRows['dateandtime']?></a><br/><br/>
+                                </div>
                             </div>
                     <?php 
                             }
