@@ -154,7 +154,9 @@
                 <div class = "comments-list">
                     
                     <?php 
-                        $fetchComments="SELECT * FROM comments WHERE postID='$postID'";
+                        $fetchComments="SELECT * FROM comments 
+                                        INNER JOIN userLogin ON comments.userID =  userLogin.userID
+                                        WHERE postID='$postID'";
                         $resultComments=mysqli_query($conn,$fetchComments);
                         $rowsComment=mysqli_num_rows($resultComments);
                         if($rowsComment>0){
@@ -162,7 +164,7 @@
                     ?>
 
                             <div class = "comment-user">
-                                <a>userID:<?php echo $commentRows['userID']?></a><br/>
+                                <a>userID:<?php echo $commentRows['idnumber']?></a><br/>
                             </div>
                             <div class = comment-detail-container>
                                 <div class = "comment-details">
