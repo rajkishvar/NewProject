@@ -26,6 +26,11 @@ a {
     place-items: center;
     column-gap: 10px;
     color: white;
+    
+                                                
+}
+.logo a p{
+    font-family: 'Old English Five', sans-serif;
 }
 .post-text{
     margin: 50px;
@@ -174,16 +179,20 @@ a {
     align-items: center;
     width: 100%;
     height: 50px;
+    color: white;
     background-color: #eea412;
     border: white solid 2px;
     padding: 10px;
     justify-content: center;
-    
+    transition: background-color 0.2s;
     border-radius: 25px;
 }
 #buttons a:hover{
-    opacity: 0.2;
+    
+    background-color: white;
+    color: #eea412;
     cursor: pointer;
+    
 }
 .search {
     display: grid;
@@ -211,9 +220,9 @@ body {
 }
 main {
     margin: auto;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     grid-gap: 40px;
 
 }
@@ -226,6 +235,7 @@ main {
     flex-direction: column;
     background-color:rgb(255 255 255 / 0.5);
     text-align: center;
+    transition: display 0.2s linear;
     max-height: 970px;
 }
 .related-questions-title h1{
@@ -284,7 +294,8 @@ main {
         padding-bottom: 50px;
     }
     main{
-        grid-template-columns: 1fr;
+        
+        flex-direction: column;
     }
     .search{
         display: grid;
@@ -292,8 +303,14 @@ main {
 
 
     }
+
     .feed-section{
         margin:auto;
+        width: 100%;
+
+    .feed-section{
+        margin:auto;
+
     }
     .posts .post-info{
         display: flex;
@@ -307,4 +324,9 @@ main {
         flex-direction: row;
         border-bottom: 1px solid grey;
     }
+
+    #sidebar{
+        margin: 10%;
+    }
+
 }

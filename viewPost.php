@@ -25,6 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Static/CSS/style.css">
     <link rel="stylesheet" href="Static/CSS/viewpost.css">
+    <link href="https://fonts.cdnfonts.com/css/old-english-five" rel="stylesheet">
     <link rel="icon" href="Static/Images/LOGO/favicon.ico">
     <title>Catherinan Buzz</title>
 </head>
@@ -42,10 +43,13 @@
          <!-- top navigation -->
          <header class="nav-bar">
             <div class="logo">
+
                 <img id="hamburger-image" src="Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
                 <a href="homePage.php">
                     
+
                     <img src="Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
+
                     <p>
                         CatherinanBUZZ
                     </p>
@@ -54,20 +58,25 @@
             <div class="bottom-menu">
                 
                 <nav id="buttons">
+
                     
                         <a href="homePage.php">HOME</a>
                         <a href="settings.php">SETTINGS</a>
                         <a href="homePage.php">FORUMS</a>
-                        <a href="http://example.com">ABOUT US</a>
+                        <a href="aboutUs.php">ABOUT US</a>
+
                         <div class="search">
                             <input type="text" placeholder="Search Here">
-                            <img src="Static/Images/Icons/search.jpg" alt="search-icon">
+                            <button>
+                                <img src="Static/Images/Icons/search.jpg" alt="search-icon">
+                            </button>
                         </div>
                         <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
 
                     
                 </nav>
             </div>
+
             <script>
                 function mobileMenu() {
                                 if (document.getElementById('buttons').style.display =="flex"){
@@ -83,13 +92,16 @@
                                     
                                 function resetMenu (){
                                     if (window.innerWidth>=900) {
-                                        document.getElementById('buttons').style.display='flex';
+
+                                        document.getElementById('buttons').style.display='grid';
+
                                     } else if (window.innerWidth < 900){
                                         document.getElementById('buttons').style.display='none';
                                     }
                                 }
                                 window.addEventListener ('resize', resetMenu);
             </script>
+
         </header>
 
         <?php 

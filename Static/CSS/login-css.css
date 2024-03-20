@@ -17,14 +17,22 @@
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+
+    color: rgb(88, 3, 245);
+
+    color: rgb(18, 2, 161);
+    text-shadow:0 4px 5px black ;
+    
+
     color: rgb(21, 161, 2);
     text-shadow:0 4px 5px black ;
+
 }
 
 .login-title{
     display: grid;
     grid-template-columns: 30% 1fr;
-    font-size: 70px;
+    font-size: 40px;
     color: grey;
     
 }
@@ -33,6 +41,8 @@
     flex-direction: column;
     row-gap: 20px;
     color: rgb(0, 184, 168);
+    font-family: 'Old English Five', sans-serif;
+    
 }
 .login-title img{
     width: 100%;

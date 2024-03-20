@@ -5,15 +5,39 @@
     require('../Backend/dbconnect.php');
 ?>
 <html>
+
+    <form action="../Backend/addAccount.php" method="POST">
+        <input type="text" name="studentID" placeholder="Enter New Student ID">
+        <button>SUBMIT</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+        </tr>
+        <?php 
+            $fetchStudents="SELECT * FROM userLogin Where accountType='user'";
+            $result=mysqli_query($conn,$fetchStudents);
+            $rows=mysqli_num_rows($result);
+            if($rows>0){
+                while($row=mysqli_fetch_assoc($result)){
+        ?>
+            <tr>
+                <td><?php echo $row['idnumber']?></td>
+            </tr>
+        <?php  }
+        }?>
+    </table>
   
 <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-            <link rel = "stylesheet" href = "../Static/CSS/settings.css">
             <link rel="stylesheet" href="../Static/CSS/style.css">
             <link rel="icon" href="../Static/Images/LOGO/favicon.ico">
             <link rel="stylesheet" href="../Static/CSS/add-account.css">
+            <link rel="stylesheet" href="../Static/CSS/home-admin-style.css">
             <title>Catherinan Buzz</title>
             <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
         </head>
@@ -35,16 +59,12 @@
                 <nav id="buttons">
                     
                         <a href="../homeAdmin.php">HOME</a>
-                        <a href="../homeAdmin.php">FORUMS</a>
-                        <a href="../games.php">GAMES</a>
-                        <a href="../aboutUs.php">ABOUT US</a>
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <img src="../Static/Images/Icons/search.jpg" alt="search-icon">
                         </div>
                         <div id = "log-out"><a  href="../Backend/logout.php">Log out</a></div>
-
-                    
+     
                 </nav>
             </div>
             <script>
@@ -62,7 +82,9 @@
                                     
                                 function resetMenu (){
                                     if (window.innerWidth>=900) {
-                                        document.getElementById('buttons').style.display='flex';
+
+                                        document.getElementById('buttons').style.display='grid';
+
                                     } else if (window.innerWidth < 900){
                                         document.getElementById('buttons').style.display='none';
                                     }
