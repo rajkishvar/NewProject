@@ -6,30 +6,7 @@
 ?>
 <html>
 
-    <form action="../Backend/addAccount.php" method="POST">
-        <input type="text" name="studentID" placeholder="Enter New Student ID">
-        <button>SUBMIT</button>
-    </form>
 
-    <table>
-        <tr>
-            <th>Student ID</th>
-            <th>Student Name</th>
-        </tr>
-        <?php 
-            $fetchStudents="SELECT * FROM userLogin Where accountType='user'";
-            $result=mysqli_query($conn,$fetchStudents);
-            $rows=mysqli_num_rows($result);
-            if($rows>0){
-                while($row=mysqli_fetch_assoc($result)){
-        ?>
-            <tr>
-                <td><?php echo $row['idnumber']?></td>
-            </tr>
-        <?php  }
-        }?>
-    </table>
-  
 <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,7 +25,7 @@
                 <img id="hamburger-image" src="../Static/Images/Icons/hamburger-menu.svg" alt="hamburger">
                 <a href="../homeAdmin.php">
                     
-                    <img src="../Static/Images/LOGO/logo.jpg.jpg" alt="scc_logo">
+                    <img src="../Static/Images/LOGO/logo.png" alt="scc_logo">
                     <p>
                         CatherinanBUZZ
                     </p>

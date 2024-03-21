@@ -143,6 +143,8 @@ a {
 
 .post-info .post-votes{
     display: flex;
+    z-index: 1;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -205,7 +207,7 @@ a {
 
 }
 .search img{
-
+    
     height: 50px;
 }
 
@@ -222,21 +224,48 @@ main {
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     grid-gap: 40px;
 
 }
 
+.sidebar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 100vh;
+    padding-top: 0;
+    margin-top: 10px;
+    position: sticky;
+    top: 0;
+}
 
+#sidebar::-webkit-scrollbar{
+    width: 8px;
+}
+#sidebar::-webkit-scrollbar-thumb {
+    background-color: #888;
+  }
+.sidebar-container button{
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: auto;
+    border: 1px solid grey;
+}
 /* Related Questions Section */
 #sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: calc(100vh);
+    overflow-y: auto;
     border: grey solid 1px;
     display: flex;
     flex-direction: column;
     background-color:rgb(255 255 255 / 0.5);
     text-align: center;
     transition: display 0.2s linear;
-    max-height: 970px;
 }
 .related-questions-title h1{
     margin: auto;
@@ -266,6 +295,8 @@ main {
     row-gap: 20px;
     background-color: rgb(255 255 255 / 0.5);
     padding: 20px;
+    margin: auto;
+    height: 100vh;
     margin-top: 10px !important;
     border: grey solid 1px;
     
@@ -281,11 +312,13 @@ main {
 }
 @media(max-width: 900px){
     #buttons{
+        display: flex;
         flex-direction: column;
-        display: none;
         justify-content: center;
+        align-items: center;
         margin: 20%;
         margin-top: 20px;
+        display: none;
         row-gap: 10px;
     }
     .post-text{
@@ -303,14 +336,9 @@ main {
 
 
     }
-
     .feed-section{
         margin:auto;
         width: 100%;
-
-    .feed-section{
-        margin:auto;
-
     }
     .posts .post-info{
         display: flex;
@@ -324,9 +352,16 @@ main {
         flex-direction: row;
         border-bottom: 1px solid grey;
     }
-
     #sidebar{
-        margin: 10%;
+        background-color: white;
     }
+    .sidebar-container{
+        flex-direction: column;
+        z-index: 2;
+        width: 100%;
 
+    }
+    .post-votes{
+        z-index: 1;
+    }
 }
