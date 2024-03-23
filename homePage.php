@@ -6,6 +6,10 @@
 
     require('Backend/dbconnect.php');
     $userID=$_SESSION['userID'];
+    $keyword = "";
+    if (isset($_POST['search'])) {
+        $keyword = $_POST['search'];
+    }
 
 ?>
 
@@ -43,12 +47,14 @@
                         <a href="games.php">GAMES</a>
                         <a href="aboutUs.php">ABOUT US</a>
 
-                        <div class="search">
-                            <input type="text" placeholder="Search Here">
+                    <form method="POST" action="homePage.php">
+                         <div class="search">
+                            <input type="text" name="search" placeholder="Search Here">
                             <button>
                                 <img src="Static/Images/Icons/search.jpg" alt="search-icon">
                             </button>
                         </div>
+                    </form>
 
                         <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
                 </nav>
@@ -91,7 +97,7 @@
                     $resultAccount=mysqli_query($conn,$fetchAccountDetails);
                     $rows=mysqli_num_rows($resultAccount);
                     if($rows>0){
-                        while($row=mysqli_fetch_array($resultAccount)){
+                        while($row=mysqli_fetch_array($resultAccount)){        
                 ?>
                 <div class = "sidebar-container">
                     <section id="sidebar" class="sticky">
@@ -190,11 +196,17 @@
                                     $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
                                                 INNER JOIN postImages ON post.postID=postImages.postID
                                                 INNER JOIN userLogin ON post.userID = userLogin.userID
-                                                WHERE post.status='Published'
-                                                ORDER BY post.date DESC";
+                                                WHERE post.status='Published'";
+                                    if (!empty($keyword)) {
+                                        $keyword = mysqli_real_escape_string($conn, $keyword);
+                                        $fetchPosts .= " AND (idnumber LIKE '%$keyword%' OR bio LIKE '%$keyword%' OR date LIKE '%$keyword%')";
+                                    }
+
+                                    $fetchPosts .= " ORDER BY post.date DESC";
                                     $resultFetchPost=mysqli_query($conn,$fetchPosts);  
                                     $currentPostID=null;
-                                    
+                                    $check = mysqli_num_rows($resultFetchPost);
+                                    if($check > 0){
                                     while($row=mysqli_fetch_array($resultFetchPost)){
                                         if($row['postID'] !==$currentPostID){
                                             ?>
@@ -257,7 +269,13 @@
                                 
                                 <?php
                                     }
-                                ?>
+                                }else{
+                                    ?>
+                                    <h3> No Results Found</h3>
+                         <?php
+                                }
+                            ?>
+                                
                                 </div>
                                 
                             
