@@ -172,7 +172,7 @@
                                     <div class="post-info-text">
                                         <a><?php echo $row['bio']?></a>
                                     </div>
-                                    <div> 
+                                    <div class = "post-text-img"> 
                                         <img src="Uploads/Posts/<?php echo $row['imagePath']?>" width="100" height="100">
                                     </div>
                                 </div>
