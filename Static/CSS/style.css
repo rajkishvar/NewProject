@@ -151,6 +151,9 @@ a {
     align-items: center;
     justify-content: center;
 }
+.active{
+    background-color: rgb(85, 55, 0) !important;
+}
 .post-title{
     margin-bottom: 20px;
 }
@@ -216,7 +219,7 @@ a {
 
 /* Body */
 body {
-    background-image: url("../Images/LOGO/background-image.jpeg");
+    background-image: url("http://scc.edu.ph/images/slider-01.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

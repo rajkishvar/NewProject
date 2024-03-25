@@ -34,7 +34,7 @@
                         <a href="homePage.php">HOME</a>
                         <a href="settings.php">SETTINGS</a>
                         <a href="games.php">GAMES</a>
-                        <a href="aboutUs.php">ABOUT US</a>
+                        <a href="aboutUs.php" class = "active">ABOUT US</a>
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <button>

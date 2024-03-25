@@ -42,7 +42,7 @@
                 
                 <nav id="buttons">
                     
-                        <a href="homePage.php">HOME</a>
+                        <a href="homePage.php" class = "active">HOME</a>
                         <a href="settings.php">SETTINGS</a>
                         <a href="games.php">GAMES</a>
                         <a href="aboutUs.php">ABOUT US</a>

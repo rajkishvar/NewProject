@@ -39,8 +39,8 @@
                 <nav id="buttons">
                     
                         <a href="homePage.php">HOME</a>
-                        <a href="settings.php">SETTINGS</a>
-                        <a href="homePage.php">FORUMS</a>
+                        <a href="settings.php" class = "active">SETTINGS</a>
+                        <a href="games.php">GAMES</a>
                         <a href="aboutUs.php">ABOUT US</a>
                         <div class="search">
                             <input type="text" placeholder="Search Here">
