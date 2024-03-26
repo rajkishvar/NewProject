@@ -33,7 +33,7 @@
                 
                 <nav id="buttons">
                     
-                        <a href="homeMod.php">HOME</a>
+                        <a href="homeMod.php" class = "active">HOME</a>
                         <div class="search">
                             <input type="text" placeholder="Search Here">
                             <button>
