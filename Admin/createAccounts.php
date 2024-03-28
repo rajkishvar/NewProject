@@ -3,6 +3,10 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     require('../Backend/dbconnect.php');
+    $keyword = "";
+    if (isset($_POST['search'])) {
+        $keyword = $_POST['search'];
+    }
 ?>
 <html>
 
@@ -36,10 +40,12 @@
                 <nav id="buttons">
                     
                         <a href="../homeAdmin.php">HOME</a>
+                        <form action="createAccounts.php" method="POST"> 
                         <div class="search">
-                            <input type="text" placeholder="Search Here">
+                            <input type="text" name="search" placeholder="Search Here">
                             <img src="../Static/Images/Icons/search.jpg" alt="search-icon">
                         </div>
+                        </form>
                         <div id = "log-out"><a  href="../Backend/logout.php">Log out</a></div>
      
                 </nav>
@@ -90,6 +96,11 @@
                     </tr>
                     <?php 
                         $fetchStudents="SELECT * FROM userLogin Where accountType !='Admin'";
+
+                        if (!empty($keyword)) {
+                            $keyword = mysqli_real_escape_string($conn, $keyword);
+                            $fetchStudents .= " AND (idnumber LIKE '%$keyword%')";
+                        }
                         $result=mysqli_query($conn,$fetchStudents);
                         $rows=mysqli_num_rows($result);
                         if($rows>0){

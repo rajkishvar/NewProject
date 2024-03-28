@@ -7,9 +7,9 @@
     require('dbconnect.php');
 
     
-    $userID = mysqli_real_escape_string($conn, $_SESSION['userID']);
-    $postID = mysqli_real_escape_string($conn, $_GET['postID']);
-    $comment = mysqli_real_escape_string($conn, $_POST['comment']);
+    $userID = $_SESSION['userID'];
+    $postID = $_GET['postID'];
+    $comment = $_POST['comment'];
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepare and execute the SQL query using a prepared statement

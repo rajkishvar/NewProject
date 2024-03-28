@@ -4,6 +4,10 @@
     error_reporting(E_ALL);
     session_start();
     require('Backend/dbconnect.php');
+    $keyword = "";
+    if (isset($_POST['search'])) {
+        $keyword = $_POST['search'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,10 +40,8 @@
                     
                         <a href="homeAdmin.php">HOME</a>
                         <div class="search">
-                            <input type="text" placeholder="Search Here">
-                            <button>
-                                <img src="Static/Images/Icons/search.jpg" alt="search-icon">
-                            </button>
+                            <input type="text" name="search" placeholder="Search Here">
+                            <img src="../Static/Images/Icons/search.jpg" alt="search-icon">
                         </div>
                         <div id = "log-out"><a  href="Backend/logout.php">Log out</a></div>
 
@@ -152,10 +154,15 @@
                     <div class="post-info">
                     <?php 
                         $fetchPosts="SELECT post.postID, postImages.imagePath,post.bio,post.userID,post.likes,post.dislikes FROM post
-                                    INNER JOIN postImages ON post.postID=postImages.postID
-                                    INNER JOIN userLogin ON post.userID = userLogin.userID
-                                    WHERE post.status='Pending'
-                                    ORDER BY post.postID ";
+                        INNER JOIN postImages ON post.postID=postImages.postID
+                        INNER JOIN userLogin ON post.userID = userLogin.userID
+                        WHERE post.status='PENDING'";
+                        if (!empty($keyword)) {
+                            $keyword = mysqli_real_escape_string($conn, $keyword);
+                            $fetchPosts .= " AND (idnumber LIKE '%$keyword%' OR bio LIKE '%$keyword%' OR date LIKE '%$keyword%')";
+                        }
+
+                        $fetchPosts .= " ORDER BY post.date DESC";
                         $resultFetchPost=mysqli_query($conn,$fetchPosts);  
                         $currentPostID=null;
 
